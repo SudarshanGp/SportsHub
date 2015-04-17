@@ -1,0 +1,40 @@
+<html>
+<head>
+    <script src="main.js"></script>
+    <script src1="line.js"></script>
+<style>
+    body { 
+                min-width: 420px; 
+                overflow-x: hidden; 
+                font-family: Arial, sans-serif; 
+                font-size: 24px; 
+                font-color: red;
+                background-color: Azure;
+                text-align: left;
+
+            }
+            input, textarea { 
+                width: 420px; 
+            }
+            input#save { 
+                font-weight: bold; width: auto; 
+            }
+</style>
+</head>
+
+<body>
+	<canvas id = "Line1" width = "200" height = "100" >Canvas</canvas>
+    <div>The date is "<span id="demo"/>"</div>
+    <button id="click-this">Click this to get Data</button>
+    <div>The content is "<span id="content"/>"</div>
+    <div>The content has loaded "<span id = "loaded"/>"</div>
+    document.querySelector("button").onclick = main.js;
+<!--
+     <button type = "button" onclick= "main.js">Click Me</button>
+    <button onclick='getElementById("demo").innerHTML=Date()'>The time is?</button>
+      <script src="main.js"></script>
+<script src = "line.js"></script>
+-->
+
+</body>
+</html>

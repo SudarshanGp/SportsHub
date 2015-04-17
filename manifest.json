@@ -1,0 +1,20 @@
+{
+  "name": "SportsHub",
+  "description": "SportsHub",
+  "manifest_version" : 2,
+  "version" : "0.2",
+  "app" : {
+    "background" : {
+      "scripts" : ["background.js", "main.js", "line.js"],
+      "persistent":true
+    }
+  },
+    "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "permissions" : [
+    
+    "http://*/*", 
+    "https://*/*"
+  ]
+}
