@@ -1,0 +1,20 @@
+{
+    "name": "BrowserActionExtension",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "browser_action": 
+    {
+    	"default_icon": {                    // optional
+            "19": "nineteen.png",           // optional
+            "38": "thirty.png"            // optional
+          },
+        "default_title": "That's the tool tip",
+        "default_popup": "background.html"
+    },
+    "content_scripts": [
+   {
+   		"matches":    ["http://www.google.com/*"],
+      	"css":        ["main.css"]
+   }
+]
+}

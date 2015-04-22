@@ -1,0 +1,50 @@
+<html>
+<head>
+   <link rel="stylesheet" href="styles.css">
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="script.js"></script>    
+<style>
+    body 
+    { 
+                overflow-x: hidden; 
+                font-family: Arial, sans-serif; 
+                font-size: 24px; 
+                font-color: red;
+                text-align: left;
+                width:350px;
+                height:580px;
+    }
+    input, textarea
+    { 
+    }
+    input#save 
+    { 
+        font-weight: bold; width: auto; 
+    }
+    #verticalbox
+    {
+     /* Line color */
+    height: 100%; /* Override in-line if you want specific height. */
+    float: left; 
+    width:100px;
+    height:580px; 
+    border-style: solid;
+    border-width: 1px;  
+    border-color: #00CCFF;  
+    }    
+</style>
+</head>
+
+<body>
+    <div id = "verticalbox"></div>
+    <div id='cssmenu'>
+    <ul>
+        <li><a href='#'><span>Yesterday</span></a></li>
+        <li class = 'active'><a href='#'><span>Today</span></a></li>
+        <li><a href='#'><span>Tomorrow</span></a></li>
+
+        <li><a href='#'><img src="settings.png" style="width:22px;height:20px"></a></li>       
+    </ul>
+    </div>     
+</body>
+</html>
