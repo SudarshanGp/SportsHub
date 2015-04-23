@@ -46,7 +46,6 @@
 #cssmenu #bg-two {
   height: 59px;
   z-index: 2;
-  background: url('images/bg.png');
 }
 #cssmenu #bg-three {
   bottom: 4px;
@@ -64,7 +63,6 @@
   bottom: 4px;
   height: 55px;
   z-index: 4;
-  background: url('images/bg.png');
 }
 #cssmenu ul {
   height: 59px;
@@ -101,7 +99,35 @@
   background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
 }
 #cssmenu ul li a:hover,
-#cssmenu ul li.active > a {
-  background: url('images/bg.png');
+#cssmenu ul li.active > a 
+{
   color: #ffffff;
+}
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 250px;
+    top: 40px;
+    left: 110px;
+    border-collapse: collapse;
+}
+
+#customers td, #customers th {
+    font-size: 0.7em;
+    border: 1px solid #330066;
+    padding: 2px 2px 2px 2px;
+}
+
+#customers th {
+    font-size: 0.7em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #330066;
+    color: #ffffff;
+}
+
+#customers tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
 }
