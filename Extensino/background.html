@@ -13,6 +13,7 @@
         text-align: left;
         width:350px;
         height:580px;
+        background-color: #FFFFFF;      
     }
     input, textarea
     { 
@@ -30,8 +31,17 @@
     height:580px; 
     border-style: solid;
     border-width: 1px;  
-    border-color: #00CCFF;  
-    }    
+    border-color: #404040 ;  
+    } 
+    #scoreboard
+    {
+      height: 55px;
+      float: left;
+      position: absolute;
+      width:250px;
+      top: 40px;
+      left: 110px;
+    }   
 </style>
 </head>
 
@@ -46,44 +56,26 @@
         <li><a href='#'><img src="settings.png" style="width:22px;height:20px"></a></li>       
     </ul>
     </div>   
+    <div ><img src = "Scoreboard.png" id = "scoreboard"></div>
+    <h style = "font-size:14px;position:absolute;top:105px; left: 200px; font-weight: bold;"> LAST PLAY </h>
 <table id="customers">
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Time</th>
+    <th>Details</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td>09:00 am</td>
+    <td>Blah Blah Blabbity Blah</td>
   </tr>
   <tr class="alt">
-    <td>Berglunds snabbköp</td>
-    <td>Christina Berglund</td>
-    <td>Sweden</td>
+    <td>10:00 am</td>
+    <td>Dun Dun dunnnn</td>
   </tr>
   <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr class="alt">
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr class="alt">
-    <td>Königlich Essen</td>
-    <td>Philip Cramer</td>
-    <td>Germany</td>
+    <td>11:00 am</td>
+    <td>Basket no Basket</td>
   </tr>
 </table>
-
 
   
 </body>

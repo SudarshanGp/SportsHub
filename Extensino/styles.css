@@ -41,7 +41,7 @@
 }
 #cssmenu #bg-one {
   height: 50px;
-  background: #0f71ba;
+  background: #181818 ;
 }
 #cssmenu #bg-two {
   height: 59px;
@@ -76,11 +76,11 @@
 }
 #cssmenu ul li a {
   /*padding: 24px 30px 20px 30px;*/
-  /*padding: 1px;*/
+  padding: 0px 0px 0px 2px;
   margin-bottom: 4px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  color: #00CCFF;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  color: #FF6600;
   font-size: 15px;
   text-decoration: none;
 }
@@ -90,31 +90,31 @@
 }
 #cssmenu ul li:hover,
 #cssmenu ul li.active {
-  background: #0f71ba;
-  background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
-  background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: -o-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: -ms-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
+  background: #181818 ;
+  background: -moz-linear-gradient(top, #505050  0%, #181818  100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #505050 ), color-stop(100%, #181818 ));
+  background: -webkit-linear-gradient(top, #505050  0%, #181818  100%);
+  background: -o-linear-gradient(top, #505050  0%, #181818  100%);
+  background: -ms-linear-gradient(top, #505050  0%, #181818  100%);
+  background: linear-gradient(to bottom, #505050  0%, #181818  100%);
 }
 #cssmenu ul li a:hover,
 #cssmenu ul li.active > a 
 {
-  color: #ffffff;
+  color: #FF3300;
 }
 #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     position: absolute;
     width: 250px;
-    top: 40px;
-    left: 110px;
+    top: 120px;
+    left: 112px;
     border-collapse: collapse;
 }
 
 #customers td, #customers th {
     font-size: 0.7em;
-    border: 1px solid #330066;
+    border: 1px solid #404040 ;
     padding: 2px 2px 2px 2px;
 }
 
@@ -123,7 +123,7 @@
     text-align: left;
     padding-top: 5px;
     padding-bottom: 4px;
-    background-color: #330066;
+    background-color: #404040;
     color: #ffffff;
 }
 

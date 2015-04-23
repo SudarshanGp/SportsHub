@@ -5,10 +5,9 @@
     "browser_action": 
     {
     	"default_icon": {                    // optional
-            "19": "nineteen.png",           // optional
-            "38": "thirty.png"            // optional
+            "19": "nineteen.png"        // optional         // optional
           },
-        "default_title": "That's the tool tip",
+        "default_title": "McSportieSportSports",
         "default_popup": "background.html"
     },
     "content_scripts": [
