@@ -1,19 +1,28 @@
 {
-    "name": "SportsHub",
-    "version": "0.0.1",
-    "manifest_version": 2,
-    "browser_action": 
-    {
-    	"default_icon": {                    // optional
-            "19": "nineteen.png"        // optional         // optional
-          },
-        "default_title": "McSportieSportSports",
-        "default_popup": "background.html"
-    },
-    "content_scripts": [
-   {
-   		"matches":    ["http://www.google.com/*"],
-      	"css":        ["main.css"]
-   }
-]
+  "name": "SportsHub",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Your Solution to Sports.",
+  /* This sample uses firebaseio-demo.com but for production apps using a firebaseio.com Firebase, you won't need that. */
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com https://*.firebaseio-demo.com; object-src 'self'",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "SportsHub",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "content_scripts":[{
+    "matches": [ "http://*/*", "https://*/*"],
+    "js": ["src/browser_action/bower_components/jquery/dist/jquery.min.js"],   
+    "css": ["src/browser_action/styles.css"]
+
+  }]
 }

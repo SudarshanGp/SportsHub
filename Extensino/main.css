@@ -1,8 +1,0 @@
-.vertical-line{
- 	background-color: red; /* Line color */
- 	height: 100%; /* Override in-line if you want specific height. */
- 	float: left; 
- 	width:250px;
- 	height:580px;
- 	border:1px;"    
-}

@@ -1,0 +1,131 @@
+@import url(http://fonts.googleapis.com/css?family=Capriola);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+ /* line-height: 1;*/
+  display: block;
+  position: relative;
+  /*left: 50px;*/
+  font-family: Capriola, Helvetica, sans-serif;
+}
+#cssmenu {
+  /*width: 200px;*/
+  /*height: 50px;*/
+  padding-bottom: 4px;
+}
+#cssmenu.align-right {
+  float: right;
+}
+#cssmenu.align-right ul li {
+  float: right;
+  margin-right: 0;
+  margin-left: 4px;
+}
+#cssmenu.align-right ul li:first-child,
+#cssmenu.align-right ul li:first-child > a {
+  border-bottom-right-radius: 3px;
+}
+#cssmenu #bg-one,
+#cssmenu #bg-two,
+#cssmenu #bg-three,
+#cssmenu #bg-four {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#cssmenu #bg-one {
+  height: 50px;
+  background: #181818 ;
+}
+#cssmenu #bg-two {
+  height: 59px;
+  z-index: 2;
+}
+#cssmenu #bg-three {
+  bottom: 4px;
+  height: 55px;
+  z-index: 3;
+  background: #222222;
+  background: -moz-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(100%, #222222));
+  background: -webkit-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -o-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -ms-linear-gradient(top, #555555 0%, #222222 100%);
+  background: linear-gradient(to bottom, #555555 0%, #222222 100%);
+}
+#cssmenu #bg-four {
+  bottom: 4px;
+  height: 55px;
+  z-index: 4;
+}
+#cssmenu ul {
+  height: 59px;
+}
+#cssmenu ul li {
+  float: left;
+  margin-right: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  z-index: 5;
+}
+#cssmenu ul li a {
+  /*padding: 24px 30px 20px 30px;*/
+  padding: 0px 0px 0px 2px;
+  margin-bottom: 4px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  color: #FF6600;
+  font-size: 15px;
+  text-decoration: none;
+}
+#cssmenu ul li:first-child,
+#cssmenu ul li:first-child > a {
+  border-bottom-left-radius: 3px;
+}
+#cssmenu ul li:hover,
+#cssmenu ul li.active {
+  background: #181818 ;
+  background: -moz-linear-gradient(top, #505050  0%, #181818  100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #505050 ), color-stop(100%, #181818 ));
+  background: -webkit-linear-gradient(top, #505050  0%, #181818  100%);
+  background: -o-linear-gradient(top, #505050  0%, #181818  100%);
+  background: -ms-linear-gradient(top, #505050  0%, #181818  100%);
+  background: linear-gradient(to bottom, #505050  0%, #181818  100%);
+}
+#cssmenu ul li a:hover,
+#cssmenu ul li.active > a 
+{
+  color: #FF3300;
+}
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 250px;
+    top: 120px;
+    left: 112px;
+    border-collapse: collapse;
+}
+#customers td, #customers th {
+    font-size: 0.7em;
+    border: 1px solid #404040 ;
+    padding: 2px 2px 2px 2px;
+}
+#customers th {
+    font-size: 0.7em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #404040;
+    color: #ffffff;
+}
+#customers tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
