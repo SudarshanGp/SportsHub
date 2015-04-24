@@ -17,32 +17,24 @@ $('#setting_frame').on('click', function(event) {
  	// $('<iframe id="myIframe" src="window.html" width="200" height="200"></iframe>');
      	if(num_clicks_settings== 1)
      	{
-     		 var url = "window.html";
-	        if($('#frame').size() == 0) {
-	        $('<iframe />', {
-	            name: 'frame',
-	            id:   'frame',
-	            src: url,
-	            width : '200px',
-	            height : '200px',
-	            position: 'absolute',
-	            top : '40px',
-	            left : '150px',
-	            zIndex : 100
-	       	 }).appendTo('body'); 
-	  		  }
-	        // frame.style.left = "150px";
-	        // frame.style.top = "40px";
-	        // frame.style.position= "absolute";
+			iframe = document.createElement("IFRAME");
+  			iframe.setAttribute("src", "window.html");
+  			iframe.style.position = "absolute";
+  			iframe.style.top = "30px";
+  			iframe.style.left = "140px";
+  			iframe.style.background = "#FFFFFF";
+  			iframe.style.width = "200px";
+  			iframe.style.height = "200px";
+  			document.body.appendChild(iframe);
         } 
         else if(num_clicks_settings %2 == 1)
         {
-        	$('#frame').show();
+        	$(iframe).show();
 
         }
         else if(num_clicks_settings %2 == 0)
         {
-        	$('#frame').hide();
+        	$(iframe).hide();
         }
 
      	
