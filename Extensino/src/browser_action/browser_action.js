@@ -1,3 +1,9 @@
+//TODO : Get a dictionary that maps the images to Team Names for the left column of teams
+// TODO : Get the score board and tables ready.
+// Download Vulcan on Chrome to use to see the Firebase Database
+// Firebase Hosting on : https://cs-465-sportshub-1.firebaseio.com/
+// WORK on a way to get the data loaded before the extension is clicked to 
+// remove latency
 Firebase.enableLogging(true);
 var root = new Firebase('https://cs-465-sportshub-1.firebaseio.com/');
 
@@ -5,16 +11,19 @@ var today = root.child('Schedule/Today');
 var yesterday = root.child('Schedule/Yesterday');
 var tomorrow = root.child('Schedule/Tomorrow');
 var num_clicks_settings = 0;
-var today_data = {};
-var tomorrow_data = {};
-var yesterday_data = {};
+var today_data = {}; // holds today's data from Firebase
+var tomorrow_data = {}; // holds tomorrow's data from Firebase
+var yesterday_data = {}; // holds yesterday's data from Firebase
 
+// document .ready function keeps track of onclick listeners that are recorded when an action occurs 
+// place all listeners here. 
+// set up Listerners for all the 4 games tabs. 
+// work on encapsulating function
 $(document).ready(function(){
 
-	$('#setting_frame').on('click', function(event) {
-		control_setting();
-	    });
-
+//	generate_today();	
+	setupFirebase();
+	generate_today();
 	$('#yesterday').on('click', function(event)
 		{
 			generate_yesterday();
@@ -23,18 +32,32 @@ $(document).ready(function(){
 	{
 			generate_tomorrow();
 	});
+	$('#setting_frame').on('click', function(event) {
+		control_setting();
+	    });
 
-	setupPage();
-	generate_sidebar();
+
+
 });
 
-function generate_sidebar()
+
+
+function generate_sidebar()// either use this function or do it manually in each generate function. 
 {
 
 
 }
 
-function control_setting()
+function generate_tables() // either use this function or do it manually in each generate function. 
+{
+
+
+
+}
+
+
+
+function control_setting() /// used to trigger the settings menu.Need to get input and do stuff with it
 {
 	num_clicks_settings = num_clicks_settings +1;
     if(num_clicks_settings== 1)
@@ -60,25 +83,14 @@ function control_setting()
         }
 }
 
-function generate_tomorrow()
-{
 
-}
-
-function generate_yesterday()
-{	
-	//alert("Yest");
-}
-
-
-
-function setupPage()
+function setupFirebase() // gets json information from firebase
  {
  	today.on("value", function(snapshot) {
  		// console.log(snapshot.val());
- 		var data = snapshot.val();
- 		today_data = data;
- 		renderToday();
+ 		var data = snapshot.val(); // gets a snapshow view for the kson data
+ 		today_data = data; /// assign the data to a local variable. No more calls to Firebase necessary
+ 		renderToday(); // get the dates working.
 		},	 function (errorObject) {
   		console.log("The read failed: " + errorObject.code);
 		});
@@ -99,7 +111,39 @@ function setupPage()
 
  }
 
- function renderToday()
+function generate_today()
+{
+	// TODO : Fill up tables
+}	
+
+
+function generate_tomorrow()
+{
+		// TODO : Fill up tables
+
+}
+
+function generate_yesterday()
+{	
+			// TODO : Fill up tables
+
+	
+}
+
+
+function generate_dates()
+{
+
+	var parse_date = yesterday_data['date'].split("-");
+ 	var returner = parse_date[1]+"/"+parse_date[2];
+	$("#yesterday").text(returner);
+	var parse_date_tm= tomorrow_data['date'].split("-");
+	var returner_tm = parse_date[1]+"/"+parse_date[2];
+	$("#tomorrow").text(  returner_tm);
+
+
+}
+ function renderToday()  // testing to see if it loads the right dates
  {
  	var parse_date = today_data['date'].split("-");
  	var returner = parse_date[1]+"/"+parse_date[2];
@@ -108,14 +152,14 @@ function setupPage()
 
  	//today
  }
-function renderYesterday()
+function renderYesterday()// testing to see if it loads the right dates
 {
 	var parse_date = yesterday_data['date'].split("-");
  	var returner = parse_date[1]+"/"+parse_date[2];
 	$("#yesterday").text(returner);
 
 }
-function renderTomorrow()
+function renderTomorrow()// testing to see if it loads the right dates
 {
 	var parse_date= tomorrow_data['date'].split("-");
 	var returner = parse_date[1]+"/"+parse_date[2];
