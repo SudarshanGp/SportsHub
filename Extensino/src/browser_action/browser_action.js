@@ -66,8 +66,8 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
 			iframe = document.createElement("IFRAME");
   			iframe.setAttribute("src", "window.html");
   			iframe.style.position = "absolute";
-  			iframe.style.top = "30px";
-  			iframe.style.left = "140px";
+  			iframe.style.top = "40px";
+  			iframe.style.left = "150px";
   			iframe.style.background = "#FFFFFF";
   			iframe.style.width = "200px";
   			iframe.style.height = "200px";
