@@ -4,6 +4,7 @@
 // Firebase Hosting on : https://cs-465-sportshub-1.firebaseio.com/
 // WORK on a way to get the data loaded before the extension is clicked to 
 // remove latency
+// TODO : Work on python script to make the app Dynamic. Just the Firebase-import module
 Firebase.enableLogging(true);
 var root = new Firebase('https://cs-465-sportshub-1.firebaseio.com/');
 
