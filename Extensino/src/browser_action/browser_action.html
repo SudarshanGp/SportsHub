@@ -78,43 +78,47 @@
 
     </div>      
     <div ><img src = "Scoreboard.png" id = "scoreboard"></div>
+
+
 <table id="customers">
   <tr>
     <td id = "team_1"></td>
-    <td>32</td>
-    <td>43</td>
-    <td>36</td>
-    <td>24</td> <!--MG-->
-    <td>111</td>            
+    <td id = "q1_1">32</td>
+    <td id = "q2_1">43</td>
+    <td id = "q3_1">36</td>
+    <td id = "q4_1">24</td> <!--MG-->
+    <td id = "f_1">111</td>            
   </tr>
   <tr class="alt">
     <td id = "team_2"></td>
-    <td>32</td>
-    <td>43</td>
-    <td>36</td>
-    <td>24</td> <!--MG-->
-    <td>111</td>   
+    <td id = "q1_2">32</td>
+    <td id = "q2_2">43</td>
+    <td id = "q3_2">36</td>
+    <td id = "q4_2">24</td> <!--MG-->
+    <td id = "f_2">111</td>  
   </tr>
 </table>        
     <h style = "font-size:14px;position:absolute;top:140px; left: 200px; font-weight: bold;"> LAST PLAY </h>
 
 <table id="customers" style = "position: absolute; width: 250px; top: 160px; left: 112px;">
   <tr>
-    <td id = "test">09:00 am</td>
-    <td>Blah Blah Blabbity Blah</td>
+    <td id = "p1_t">09:00 am</td>
+    <td id = "p1">Blah Blah Blabbity Blah</td>
   </tr>
+  <!-- Having 3 plays may make it too cluttered, something we can discuss -MG
+        **also, we'll have to add labels to the scoreboard per quarter, and scoring play**
   <tr class="alt">
-    <td>10:00 am</td>
-    <td>Dun Dun dunnnn</td>
+    <td id = "p2_t">10:00 am</td>
+    <td id = "p2">Dun Dun dunnnn</td>
   </tr>
   <tr>
-    <td>11:00 am</td>
-    <td>Basket no Basket</td>
-  </tr>
+    <td id = "p3_t">11:00 am</td>
+    <td id = "p3">Basket no Basket</td>
+  </tr> -->
 </table>
     
-    <h style = "font-size:14px;position:absolute;top:220px; left: 195px; font-weight: bold;"> GAME STATS</h>
-<table id="customers" style = "position: absolute; width: 240px; top: 240px; left: 112px;">
+    <h style = "font-size:14px;position:absolute;top:195px; left: 195px; font-weight: bold;"> GAME STATS</h>
+<table id="customers" style = "position: absolute; width: 240px; top: 215px; left: 112px;">
   <tr>
     <td id = "test"> </td>
 
@@ -124,33 +128,38 @@
   </tr>
   <tr class="alt">
     <td>Total Rebounds</td>
-    <td>23</td>
-    <td>23</td>
+    <td id = "reb_1">23</td>
+    <td id = "reb_2">23</td>
   </tr>
   <tr>
     <td>Offensive Rebounds</td>
-    <td>9</td>
-    <td>7</td>
+    <td id = "oreb_1">9</td>
+    <td id = "oreb_2">7</td>
+  </tr>
+  <tr>
+    <td>Assists</td>
+    <td id = "ast_1">9</td>
+    <td id = "ast_2">7</td>
   </tr>
   <tr class="alt">
     <td>Turnovers</td>
-    <td>8</td>
-    <td>6</td>
+    <td id = "to_1">8</td>
+    <td id = "to_2">6</td>
   </tr>
   <tr>
     <td>Fast Break Pts</td>
-    <td>4</td>
-    <td>23</td>
+    <td id = "fb_1">4</td>
+    <td id = "fb_2">23</td>
   </tr>
     <tr class="alt">
     <td>Biggest Lead</td>
-    <td>12</td>
-    <td>13</td>
+    <td id = "ld_1">??</td>
+    <td id = "ld_2">??</td>
   </tr>
   <tr>
     <td>Points in the Paint</td>
-    <td>34</td>
-    <td>30</td>
+    <td id = "pp_1">34</td>
+    <td id = "pp_2">30</td>
   </tr>
 </table>   
 
@@ -167,19 +176,19 @@
     <td id = "team_2_p">Team 2 P</td>    
   </tr>
   <tr class = "alt">
-    <td>Points</td>
-    <td>23</td>
-    <td>23</td>
+    <td>PTS</td>
+    <td id = "pt_1">23</td>
+    <td id = "pt_2">23</td>
   </tr>
   <tr>
-    <td>Rebounds</td>
-    <td>9</td>
-    <td>7</td>
+    <td>REB</td>
+    <td id = "r1">9</td>
+    <td id = "r2">7</td>
   </tr>
   <tr class="alt">
-    <td>Assists</td>
-    <td>8</td>
-    <td>6</td>
+    <td>AST</td>
+    <td id = "a1">8</td>
+    <td id = "a2">6</td>
   </tr>
 </table>   
 
