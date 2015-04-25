@@ -103,7 +103,7 @@ function setupPage()
  {
  	var parse_date = today_data['date'].split("-");
  	var returner = parse_date[1]+"/"+parse_date[2];
- 	$("#today").text('today');
+ 	//$("#today").text('today');
 
 
  	//today

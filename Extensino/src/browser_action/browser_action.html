@@ -6,18 +6,9 @@
    <script src="script.js"></script>  
    -->  
    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script> 
-    <script type="text/javascript">
  
-    $(".button1").toggle(
-  function () {
-    $(".iframe1").hide();
-  },
-  function () {
-    $(".iframe1").show();
-  }
-  );
    
-</script>   
+   
 <style>
     body 
     { 
@@ -68,25 +59,48 @@
       background: #FFFFFF;
       z-index: 500;
     }
+    #ndlast
+    {
+      margin-left: 60px;
+    }
 </style>
 </head>
 <body>
     <div id = "verticalbox">Hello</div>
     <div id='cssmenu'>
     <ul>
-        <li><a href='#'><span id = "yesterday">Yesterday</span></a></li>
-        <li class = 'active'><a href='#'><span id="today">Today</span></a></li>
-        <li><a href='#'><span id = "tomorrow">Tomorrow</span></a></li>
-        <li><a href='#'><img src="settings.png" id="setting_frame" style="width:22px;height:20px"></a></li>
+        <li style = "position: relative; left: 35px;"><a href='#' id = 'yesterday'> </a></li>
+        <li class = 'active' style = "position: relative; left: 35px;"><a id = 'today' href='#'>Today</a></li>
+        <li style = "position: relative; left: 35px;"><a href='#' id= 'tomorrow'> </a></li>       
     </ul>
+
     </div>   
+    <div id='cssmenu'>
+    <ul>
+        <li style = "position: relative; left: 25px;"><a href='#'><img src="settings.png" id="setting_frame" style="width:22px;height:21px;"></a></li>         
+    </ul>
+
+    </div>      
     <div ><img src = "Scoreboard.png" id = "scoreboard"></div>
-    <h style = "font-size:14px;position:absolute;top:105px; left: 200px; font-weight: bold;"> LAST PLAY </h>
 <table id="customers">
   <tr>
-    <th>Time</th>
-    <th>Details</th>
+    <td id = "test">Team 1</td>
+    <td>32</td>
+    <td>43</td>
+    <td>36</td>
+    <td>111</td>            
   </tr>
+  <tr class="alt">
+    <td id = "test">Team 2</td>
+    <td>32</td>
+    <td>43</td>
+    <td>36</td>
+    <td>111</td>   
+  </tr>
+</table>        
+    <h style = "font-size:14px;position:absolute;top:140px; left: 200px; font-weight: bold;"> LAST PLAY </h>
+
+<table id="customers" style = "position: absolute; width: 250px; top: 160px; left: 112px;">
   <tr>
     <td id = "test">09:00 am</td>
     <td>Blah Blah Blabbity Blah</td>
@@ -100,6 +114,44 @@
     <td>Basket no Basket</td>
   </tr>
 </table>
+    <h style = "font-size:14px;position:absolute;top:220px; left: 195px; font-weight: bold;"> GAME STATS</h>
+<table id="customers" style = "position: absolute; width: 240px; top: 260px; left: 112px;">
+  <tr>
+    <td id = "test"> </td>
+    <td>Team 1</td>
+    <td>Team 2</td>    
+  </tr>
+  <tr class="alt">
+    <td>Total Rebounds</td>
+    <td>23</td>
+    <td>23</td>
+  </tr>
+  <tr>
+    <td>Offensive Rebounds</td>
+    <td>9</td>
+    <td>7</td>
+  </tr>
+  <tr class="alt">
+    <td>Turnovers</td>
+    <td>8</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>Fast Break Pts</td>
+    <td>4</td>
+    <td>23</td>
+  </tr>
+    <tr class="alt">
+    <td>Biggest Lead</td>
+    <td>12</td>
+    <td>13</td>
+  </tr>
+  <tr>
+    <td>Points in the Paint</td>
+    <td>34</td>
+    <td>30</td>
+  </tr>
+</table>    
   <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
 <script src="browser_action.js"></script>
 </body>
