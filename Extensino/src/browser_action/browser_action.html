@@ -80,17 +80,19 @@
     <div ><img src = "Scoreboard.png" id = "scoreboard"></div>
 <table id="customers">
   <tr>
-    <td id = "test">Team 1</td>
+    <td id = "team_1"></td>
     <td>32</td>
     <td>43</td>
     <td>36</td>
+    <td>24</td> <!--MG-->
     <td>111</td>            
   </tr>
   <tr class="alt">
-    <td id = "test">Team 2</td>
+    <td id = "team_2"></td>
     <td>32</td>
     <td>43</td>
     <td>36</td>
+    <td>24</td> <!--MG-->
     <td>111</td>   
   </tr>
 </table>        
@@ -110,12 +112,15 @@
     <td>Basket no Basket</td>
   </tr>
 </table>
+    
     <h style = "font-size:14px;position:absolute;top:220px; left: 195px; font-weight: bold;"> GAME STATS</h>
-<table id="customers" style = "position: absolute; width: 240px; top: 260px; left: 112px;">
+<table id="customers" style = "position: absolute; width: 240px; top: 240px; left: 112px;">
   <tr>
     <td id = "test"> </td>
-    <td>Team 1</td>
-    <td>Team 2</td>    
+
+    <td id = "team_1_s">Scoreboard1</td>
+
+    <td id = "team_2_s">Scoreboard2</td>    
   </tr>
   <tr class="alt">
     <td>Total Rebounds</td>
@@ -147,7 +152,37 @@
     <td>34</td>
     <td>30</td>
   </tr>
-</table>    
+</table>   
+
+<!--added by Mike 04/25/15, adding player stats table
+    I may change this title to "Indidivual Leadres, 
+    may be a bit more descriptive-->
+    <h style = "font-size:14px;position:absolute;top:370px; left: 190px; font-weight: bold;">PLAYER STATS</h>
+<table id="customers" style = "position: absolute; width: 240px; top: 390px; left: 112px;">
+  <tr>
+    <td id = "test"> </td>
+
+    <td id = "team_1_p">Team 1 P</td>
+
+    <td id = "team_2_p">Team 2 P</td>    
+  </tr>
+  <tr class = "alt">
+    <td>Points</td>
+    <td>23</td>
+    <td>23</td>
+  </tr>
+  <tr>
+    <td>Rebounds</td>
+    <td>9</td>
+    <td>7</td>
+  </tr>
+  <tr class="alt">
+    <td>Assists</td>
+    <td>8</td>
+    <td>6</td>
+  </tr>
+</table>   
+
   <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>
 <script src="browser_action.js"></script>
 </body>

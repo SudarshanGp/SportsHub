@@ -127,7 +127,15 @@ function generate_tomorrow()
 function generate_yesterday()
 {	
 			// TODO : Fill up tables
-
+	$("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
+	$("#team_2").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
+	/*team_1_s and team 2_s display down in the team stats box*/
+	$("#team_1_s").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
+	$("#team_2_s").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
+	/*team_1_p and team_2_p display for the individual player stats*/
+	$("#team_1_p").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
+	$("#team_2_p").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
+	
 	
 }
 
