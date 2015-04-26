@@ -148,6 +148,7 @@ function generate_yesterday()
 	$("#q4_2").text(yesterday_data['games']['0']['Team_Stats']['home']['scoring']['3']['points']);
 	$("#f_2").text(yesterday_data['games']['0']['Team_Stats']['home']['points']);
 	/*generate play-by-play*/
+	//TODO: Add the quarter to the time so it's more clear
 	$("#p1_t").text(yesterday_data['games']['0']['Play_by_play']['periods']['3']['events']['98']['clock']);
 	$("#p1").text(yesterday_data['games']['0']['Play_by_play']['periods']['3']['events']['98']['description']);
 	/*generate team stats (can't find largest lead)*/
