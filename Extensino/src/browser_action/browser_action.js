@@ -36,6 +36,11 @@ $(document).ready(function(){
 	$('#setting_frame').on('click', function(event) {
 		control_setting();
 	    });
+	$('#cssmenu ul li a').click (function(ev) {
+        $('#cssmenu ul li').removeClass('active');
+        $(ev.currentTarget).parent('li').addClass('active');
+    });
+
 
 
 

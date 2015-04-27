@@ -18,6 +18,19 @@
     "default_title": "SportsHub",
     "default_popup": "src/browser_action/browser_action.html"
   },
+   "commands": {
+    "toggle-feature": {
+      "suggested_key": { 
+        "default": "Ctrl+Shift+Y" 
+      },
+      "description": "Send a 'toggle-feature' event to the extension"
+    },
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+S"
+      }
+    }
+  },
   "content_scripts":[{
     "matches": [ "http://*/*", "https://*/*"],
     "js": ["src/browser_action/bower_components/jquery/dist/jquery.min.js"],   
