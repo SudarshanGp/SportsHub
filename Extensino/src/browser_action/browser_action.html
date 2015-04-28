@@ -16,7 +16,6 @@
         z-index:3;        
         width:350px;
         height:580px;
-
         background-color: #FFFFFF;      
     }
     input, textarea
@@ -37,6 +36,71 @@
       border-width: 1px;  
       border-color: #404040 ;  
     } 
+    #game_set
+    {
+     /* Line color */
+     /*height: 20%;  Override in-line if you want specific height. */
+      float: left;
+      top : 8px; 
+      width:100px;
+      height:116px; 
+      position :absolute;
+      border-style: solid;
+      border-width: 1px;  
+      border-color: #404040 ;
+    }
+    #game_set1
+    {
+     /* Line color */
+      /*height: 20%;  Override in-line if you want specific height. */
+      float: left;
+      top : 124px; 
+      width:100px;
+      height:116px; 
+        position :absolute;
+      border-style: solid;
+      border-width: 1px;  
+      border-color: #404040 ;
+    }
+    #game_set2
+    {
+     /* Line color */
+      /*height: 20%;  Override in-line if you want specific height. */
+      float: left; 
+      top : 240px;
+      width:100px;
+      position :absolute;
+      height:116px; 
+      border-style: solid;
+      border-width: 1px;  
+      border-color: #404040 ;
+    }
+    #game_set3
+    {
+     /* Line color */
+      /*height: 20%;  Override in-line if you want specific height. */
+      float: left; 
+      top : 356px;
+      width:100px;
+      position :absolute;
+      height:116px; 
+      border-style: solid;
+      border-width: 1px;  
+      border-color: #404040 ;
+    }
+    #game_set4
+    {
+     /* Line color */
+      /*height: 20%;  Override in-line if you want specific height. */
+      float: left; 
+      top : 472px;
+      width:100px;
+      position :absolute;
+      height:116px; 
+      border-style: solid;
+      border-width: 1px;  
+      border-color: #404040 ;
+    }
     #scoreboard
     {
       height: 55px;
@@ -62,7 +126,15 @@
 </style>
 </head>
 <body>
-    <div id = "verticalbox">Hello</div>
+    <div id = "verticalbox">
+        <div id = "game_set"><a id = 'first_game' href = '#' style = "display:block;width:100%; height:100%; text-decoration:none; color:black"> </a></div>
+  
+        <div id = "game_set1"> <a id = 'second_game' href = '#' style = "display:block;width:100%; height:100%; text-decoration:none; color:black">  </a></div>
+
+        <div id = "game_set2"> <a id = 'third_game' href = '#' style = "display:block;width:100%; height:100%; text-decoration:none; color:black">  </a></div>
+         <div id = "game_set3"> <a id = 'fourth_game' href = '#' style = "display:block;width:100%; height:100%; text-decoration:none; color:black">  </a></div>
+         <div id = "game_set4"> <a id = 'fifth_game' href = '#' style = "display:block;width:100%; height:100%; text-decoration:none; color:black">  </a></div>
+    </div>
     <div id='cssmenu'>
     <ul>
         <li style = "position: relative; left: 35px;"><a href='#' id = 'yesterday'> </a></li>
