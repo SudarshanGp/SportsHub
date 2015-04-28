@@ -15,7 +15,9 @@ var num_clicks_settings = 0;
 var today_data = {}; // holds today's data from Firebase
 var tomorrow_data = {}; // holds tomorrow's data from Firebase
 var yesterday_data = {}; // holds yesterday's data from Firebase
-
+var yesterday1 = 0;
+var today1= 0;
+var tomorrow1 = 0;
 // document .ready function keeps track of onclick listeners that are recorded when an action occurs 
 // place all listeners here. 
 // set up Listerners for all the 4 games tabs. 
@@ -23,8 +25,9 @@ var yesterday_data = {}; // holds yesterday's data from Firebase
 $(document).ready(function(){
 
 //	generate_today();	
+	today1 = 1;	
+	handle_first();
 	setupFirebase();
-	generate_today();
 	$('#first_game').on('click', function(event)
 	{
 		generate_yesterday_game();
@@ -37,14 +40,28 @@ $(document).ready(function(){
 	{
 		generate_yesterday_game2();
 	});
+	$('#today').on('click', function(event)
+	{
+			today1 = 1;
+			yesterday1 = 0;
+			tomorrow1 = 0;
+			generate_today_game();
+	}
+		);
 	$('#yesterday').on('click', function(event)
 		{
+			today1 = 0;
+			yesterday1 = 1;
+			tomorrow1 = 0;
 			generate_yesterday_game();
 
 		});
 	$('#tomorrow').on('click', function(event)
 	{
-			generate_tomorrow();
+			today1 = 0;
+			yesterday1 = 0;
+			tomorrow1 	= 1;
+			generate_tomorrow_game();
 	});
 	$('#cssmenu ul li a').click (function(ev) {
         $('#cssmenu ul li').removeClass('active');
@@ -63,17 +80,74 @@ $(document).ready(function(){
 
 });
 
-
-
-function generate_sidebar()// either use this function or do it manually in each generate function. 
+function generate_today_game()
 {
+}
+function generate_tomorrow_game()
+{
+
+}
+function generate_today_game1()
+{
+
+}
+function generate_tomorrow_game1()
+{
+
+}
+function generate_today_game2()
+{
+
+}
+function generate_tomorrow_game2()
+{
+
+}
+
+function handle_first() // either use this function or do it manually in each generate function. 
+{	
+	if(today1 == 1)
+		generate_today_game();
+	else if(yesterday1 == 1)
+	{
+		generate_yesterday_game();
+	}
+	else if(tomorrow1 == 1)
+	{
+		generate_tomorrow_game();
+	}
 
 
 }
 
-function generate_tables() // either use this function or do it manually in each generate function. 
-{
+function handle_second() // either use this function or do it manually in each generate function. 
+{	
+	if(today1 == 1)
+		generate_today_game1();
+	else if(yesterday1 == 1)
+	{
+		generate_yesterday_game1();
+	}
+	else if(tomorrow1 == 1)
+	{
+		generate_tomorrow_game1();
+	}
 
+
+}
+
+function handle_third() // either use this function or do it manually in each generate function. 
+{	
+	if(today1 == 1)
+		generate_today_game2();
+	else if(yesterday1 == 1)
+	{
+		generate_yesterday_game2();
+	}
+	else if(tomorrow1 == 1)
+	{
+		generate_tomorrow_game2();
+	}
 
 
 }
@@ -206,6 +280,9 @@ function generate_yesterday_game2() // WHY IS IT NOT WORKING...DEBUG.
 	var a_2_name = yesterday_data['games']['2']['Game_Details']['home']['leaders']['assists']['0']['full_name'];
 	var a_2_stat = yesterday_data['games']['2']['Game_Details']['home']['leaders']['assists']['0']['statistics']['assists']
 	$("#a2").text(a_2_name + " " + a_2_stat);
+	$("#score1").text(yesterday_data['games']['2']['Team_stats']['home']['points']);
+	$("#score2").text(yesterday_data['games']['2']['Team_stats']['away']['points']);
+	
 
 	
 }
@@ -270,7 +347,9 @@ function generate_yesterday_game1() // WHY IS IT NOT WORKING...DEBUG.
 	var a_2_name = yesterday_data['games']['1']['Game_Details']['home']['leaders']['assists']['0']['full_name'];
 	var a_2_stat = yesterday_data['games']['1']['Game_Details']['home']['leaders']['assists']['0']['statistics']['assists']
 	$("#a2").text(a_2_name + " " + a_2_stat);
-
+$("#score1").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
+	$("#score2").text(yesterday_data['games']['1']['Team_stats']['away']['points']);
+	
 	
 }
 
@@ -335,7 +414,8 @@ function generate_yesterday_game()
 	var a_2_name = yesterday_data['games']['0']['Game_Details']['home']['leaders']['assists']['0']['full_name'];
 	var a_2_stat = yesterday_data['games']['0']['Game_Details']['home']['leaders']['assists']['0']['statistics']['assists']
 	$("#a2").text(a_2_name + " " + a_2_stat);
-
+	$("#score1").text(yesterday_data['games']['0']['Team_Stats']['home']['points']);
+	$("#score2").text(yesterday_data['games']['0']['Team_Stats']['away']['points']);
 	
 }
 
@@ -376,4 +456,3 @@ function renderTomorrow()// testing to see if it loads the right dates
 
 
 }
-
