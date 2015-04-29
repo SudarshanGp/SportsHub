@@ -222,9 +222,15 @@ function generate_tomorrow()
 function generate_yesterday_game2() // WHY IS IT NOT WORKING...DEBUG.
 {	
 		
-	$("#team_1").text(yesterday_data['games']['2']['Team_stats']['away']['name']);
-	$("#team_2").text(yesterday_data['games']['2']['Team_stats']['home']['name']);
-	/*team_1_s and team 2_s display down in the team stats box*/
+	var t1 = $("#team_1").text(yesterday_data['games']['2']['Team_stats']['away']['name']);
+	var t2 = $("#team_2").text(yesterday_data['games']['2']['Team_stats']['home']['name']);
+	//$("#teamimg1").text("Images/" + t1 + ".png");
+	image = document.getElementById('teamimg1');
+	var r3 = "Images/" + yesterday_data['games']['2']['Team_stats']['away']['name'] + ".png";
+	image.src = r3;
+	image = document.getElementById('teamimg2');
+	var r4 = "Images/" + yesterday_data['games']['2']['Team_stats']['home']['name'] + ".png";
+	image.src = r4;		/*team_1_s and team 2_s display down in the team stats box*/
 	$("#team_1_s").text(yesterday_data['games']['2']['Team_stats']['away']['name']);
 	$("#team_2_s").text(yesterday_data['games']['2']['Team_stats']['home']['name']);
 	/*team_1_p and team_2_p display for the indiv'2'ual player stats*/
@@ -291,6 +297,12 @@ function generate_yesterday_game1() // WHY IS IT NOT WORKING...DEBUG.
 		
 	$("#team_1").text(yesterday_data['games']['1']['Team_stats']['away']['name']);
 	$("#team_2").text(yesterday_data['games']['1']['Team_stats']['home']['name']);
+	image = document.getElementById('teamimg1');
+	var r3 = "Images/" + yesterday_data['games']['1']['Team_stats']['away']['name'] + ".png";
+	image.src = r3;
+	image = document.getElementById('teamimg2');
+	var r4 = "Images/" + yesterday_data['games']['1']['Team_stats']['home']['name'] + ".png";
+	image.src = r4;	
 	/*team_1_s and team 2_s display down in the team stats box*/
 	$("#team_1_s").text(yesterday_data['games']['1']['Team_stats']['away']['name']);
 	$("#team_2_s").text(yesterday_data['games']['1']['Team_stats']['home']['name']);
@@ -356,8 +368,14 @@ $("#score1").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
 function generate_yesterday_game()
 {	
 		
-	$("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
-	$("#team_2").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
+	var yolo = $("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
+	 $("#team_2").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
+	image = document.getElementById('teamimg1');
+	var r3 = "Images/" + yesterday_data['games']['0']['Team_Stats']['away']['name'] + ".png";
+	image.src = r3;
+	image = document.getElementById('teamimg2');
+	var r4 = "Images/" + yesterday_data['games']['0']['Team_Stats']['home']['name'] + ".png";
+	image.src = r4;	
 	/*team_1_s and team 2_s display down in the team stats box*/
 	$("#team_1_s").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
 	$("#team_2_s").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
