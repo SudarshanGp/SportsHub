@@ -287,25 +287,25 @@ function generate_yesterday_game2() // WHY IS IT NOT WORKING...DEBUG.
 	$("#pp_1").text(yesterday_data['games']['2']['Team_stats']['away']['statistics']['paint_pts']);
 	$("#pp_2").text(yesterday_data['games']['2']['Team_stats']['home']['statistics']['paint_pts']);
 	/*generate player stats*/
-	var pt_1_name = yesterday_data['games']['2']['Game_Details']['away']['leaders']['points']['0']['full_name'];
-	var pt_1_stat = yesterday_data['games']['2']['Game_Details']['away']['leaders']['points']['0']['statistics']['points']
+	var pt_1_name = yesterday_data['games']['2']['Game_details']['away']['leaders']['points']['0']['full_name'];
+	var pt_1_stat = yesterday_data['games']['2']['Game_details']['away']['leaders']['points']['0']['statistics']['points']
 	$("#pt_1").text(pt_1_name + " " + pt_1_stat);
-	var pt_2_name = yesterday_data['games']['2']['Game_Details']['home']['leaders']['points']['0']['full_name'];
-	var pt_2_stat = yesterday_data['games']['2']['Game_Details']['home']['leaders']['points']['0']['statistics']['points']
+	var pt_2_name = yesterday_data['games']['2']['Game_details']['home']['leaders']['points']['0']['full_name'];
+	var pt_2_stat = yesterday_data['games']['2']['Game_details']['home']['leaders']['points']['0']['statistics']['points']
 	$("#pt_2").text(pt_2_name + " " + pt_2_stat);
 
-	var r_1_name = yesterday_data['games']['2']['Game_Details']['away']['leaders']['rebounds']['0']['full_name'];
-	var r_1_stat = yesterday_data['games']['2']['Game_Details']['away']['leaders']['rebounds']['0']['statistics']['rebounds']
+	var r_1_name = yesterday_data['games']['2']['Game_details']['away']['leaders']['rebounds']['0']['full_name'];
+	var r_1_stat = yesterday_data['games']['2']['Game_details']['away']['leaders']['rebounds']['0']['statistics']['rebounds']
 	$("#r1").text(r_1_name + " " + r_1_stat);
-	var r_2_name = yesterday_data['games']['2']['Game_Details']['home']['leaders']['rebounds']['0']['full_name'];
-	var r_2_stat = yesterday_data['games']['2']['Game_Details']['home']['leaders']['rebounds']['0']['statistics']['rebounds']
+	var r_2_name = yesterday_data['games']['2']['Game_details']['home']['leaders']['rebounds']['0']['full_name'];
+	var r_2_stat = yesterday_data['games']['2']['Game_details']['home']['leaders']['rebounds']['0']['statistics']['rebounds']
 	$("#r2").text(r_2_name + " " + r_2_stat);
 
-	var a_1_name = yesterday_data['games']['2']['Game_Details']['away']['leaders']['assists']['0']['full_name'];
-	var a_1_stat = yesterday_data['games']['2']['Game_Details']['away']['leaders']['assists']['0']['statistics']['assists']
+	var a_1_name = yesterday_data['games']['2']['Game_details']['away']['leaders']['assists']['0']['full_name'];
+	var a_1_stat = yesterday_data['games']['2']['Game_details']['away']['leaders']['assists']['0']['statistics']['assists']
 	$("#a1").text(a_1_name + " " + a_1_stat);
-	var a_2_name = yesterday_data['games']['2']['Game_Details']['home']['leaders']['assists']['0']['full_name'];
-	var a_2_stat = yesterday_data['games']['2']['Game_Details']['home']['leaders']['assists']['0']['statistics']['assists']
+	var a_2_name = yesterday_data['games']['2']['Game_details']['home']['leaders']['assists']['0']['full_name'];
+	var a_2_stat = yesterday_data['games']['2']['Game_details']['home']['leaders']['assists']['0']['statistics']['assists']
 	$("#a2").text(a_2_name + " " + a_2_stat);
 	$("#score1").text(yesterday_data['games']['2']['Team_stats']['home']['points']);
 	$("#score2").text(yesterday_data['games']['2']['Team_stats']['away']['points']);
@@ -364,25 +364,25 @@ function generate_yesterday_game1() // WHY IS IT NOT WORKING...DEBUG.
 	$("#pp_1").text(yesterday_data['games']['1']['Team_stats']['away']['statistics']['paint_pts']);
 	$("#pp_2").text(yesterday_data['games']['1']['Team_stats']['home']['statistics']['paint_pts']);
 	/*generate player stats*/
-	var pt_1_name = yesterday_data['games']['1']['Game_Details']['away']['leaders']['points']['0']['full_name'];
-	var pt_1_stat = yesterday_data['games']['1']['Game_Details']['away']['leaders']['points']['0']['statistics']['points']
+	var pt_1_name = yesterday_data['games']['1']['Game_details']['away']['leaders']['points']['0']['full_name'];
+	var pt_1_stat = yesterday_data['games']['1']['Game_details']['away']['leaders']['points']['0']['statistics']['points']
 	$("#pt_1").text(pt_1_name + " " + pt_1_stat);
-	var pt_2_name = yesterday_data['games']['1']['Game_Details']['home']['leaders']['points']['0']['full_name'];
-	var pt_2_stat = yesterday_data['games']['1']['Game_Details']['home']['leaders']['points']['0']['statistics']['points']
+	var pt_2_name = yesterday_data['games']['1']['Game_details']['home']['leaders']['points']['0']['full_name'];
+	var pt_2_stat = yesterday_data['games']['1']['Game_details']['home']['leaders']['points']['0']['statistics']['points']
 	$("#pt_2").text(pt_2_name + " " + pt_2_stat);
 
-	var r_1_name = yesterday_data['games']['1']['Game_Details']['away']['leaders']['rebounds']['0']['full_name'];
-	var r_1_stat = yesterday_data['games']['1']['Game_Details']['away']['leaders']['rebounds']['0']['statistics']['rebounds']
+	var r_1_name = yesterday_data['games']['1']['Game_details']['away']['leaders']['rebounds']['0']['full_name'];
+	var r_1_stat = yesterday_data['games']['1']['Game_details']['away']['leaders']['rebounds']['0']['statistics']['rebounds']
 	$("#r1").text(r_1_name + " " + r_1_stat);
-	var r_2_name = yesterday_data['games']['1']['Game_Details']['home']['leaders']['rebounds']['0']['full_name'];
-	var r_2_stat = yesterday_data['games']['1']['Game_Details']['home']['leaders']['rebounds']['0']['statistics']['rebounds']
+	var r_2_name = yesterday_data['games']['1']['Game_details']['home']['leaders']['rebounds']['0']['full_name'];
+	var r_2_stat = yesterday_data['games']['1']['Game_details']['home']['leaders']['rebounds']['0']['statistics']['rebounds']
 	$("#r2").text(r_2_name + " " + r_2_stat);
 
-	var a_1_name = yesterday_data['games']['1']['Game_Details']['away']['leaders']['assists']['0']['full_name'];
-	var a_1_stat = yesterday_data['games']['1']['Game_Details']['away']['leaders']['assists']['0']['statistics']['assists']
+	var a_1_name = yesterday_data['games']['1']['Game_details']['away']['leaders']['assists']['0']['full_name'];
+	var a_1_stat = yesterday_data['games']['1']['Game_details']['away']['leaders']['assists']['0']['statistics']['assists']
 	$("#a1").text(a_1_name + " " + a_1_stat);
-	var a_2_name = yesterday_data['games']['1']['Game_Details']['home']['leaders']['assists']['0']['full_name'];
-	var a_2_stat = yesterday_data['games']['1']['Game_Details']['home']['leaders']['assists']['0']['statistics']['assists']
+	var a_2_name = yesterday_data['games']['1']['Game_details']['home']['leaders']['assists']['0']['full_name'];
+	var a_2_stat = yesterday_data['games']['1']['Game_details']['home']['leaders']['assists']['0']['statistics']['assists']
 	$("#a2").text(a_2_name + " " + a_2_stat);
 $("#score1").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
 	$("#score2").text(yesterday_data['games']['1']['Team_stats']['away']['points']);
