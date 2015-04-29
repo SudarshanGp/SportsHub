@@ -54,7 +54,7 @@ $(document).ready(function(){
 			yesterday1 = 1;
 			tomorrow1 = 0;
 			generate_yesterday_game();
-
+			generate_yesterday_game_pics();
 		});
 	$('#tomorrow').on('click', function(event)
 	{
@@ -80,6 +80,27 @@ $(document).ready(function(){
 
 });
 
+function generate_yesterday_game_pics()
+{
+	image1 = document.getElementById('teamimg12');
+	var r3 = "Images/" + yesterday_data['games']['1']['Team_stats']['away']['name'] + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg22');
+	var r4 = "Images/" + yesterday_data['games']['1']['Team_stats']['home']['name'] + ".gif ";
+	image1.src = r4;	
+	image1 = document.getElementById('teamimg11');
+	var r3 = "Images/" + yesterday_data['games']['0']['Team_Stats']['away']['name'] + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg21');
+	var r4 = "Images/" + yesterday_data['games']['0']['Team_Stats']['home']['name'] + ".gif ";
+	image1.src = r4;
+	image1 = document.getElementById('teamimg13');
+	var r3 = "Images/" + yesterday_data['games']['2']['Team_stats']['away']['name'] + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg23');
+	var r4 = "Images/" + yesterday_data['games']['2']['Team_stats']['home']['name'] + ".gif ";
+	image1.src = r4;		
+}
 function generate_today_game()
 {
 }
@@ -298,10 +319,14 @@ function generate_yesterday_game1() // WHY IS IT NOT WORKING...DEBUG.
 	$("#team_1").text(yesterday_data['games']['1']['Team_stats']['away']['name']);
 	$("#team_2").text(yesterday_data['games']['1']['Team_stats']['home']['name']);
 	image = document.getElementById('teamimg1');
+	image1 = document.getElementById('teamimg12');
 	var r3 = "Images/" + yesterday_data['games']['1']['Team_stats']['away']['name'] + ".gif ";
 	image.src = r3;
+	image1.src = r3;
 	image = document.getElementById('teamimg2');
+	image1 = document.getElementById('teamimg22');
 	var r4 = "Images/" + yesterday_data['games']['1']['Team_stats']['home']['name'] + ".gif ";
+	image1.src = r4;
 	image.src = r4;	
 	/*team_1_s and team 2_s display down in the team stats box*/
 	$("#team_1_s").text(yesterday_data['games']['1']['Team_stats']['away']['name']);
@@ -368,14 +393,18 @@ $("#score1").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
 function generate_yesterday_game()
 {	
 		
-	var yolo = $("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
+	 $("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
 	 $("#team_2").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
 	image = document.getElementById('teamimg1');
+	image1 = document.getElementById('teamimg11');
 	var r3 = "Images/" + yesterday_data['games']['0']['Team_Stats']['away']['name'] + ".gif";
 	image.src = r3;
+	image1.src = r3;
 	image = document.getElementById('teamimg2');
 	var r4 = "Images/" + yesterday_data['games']['0']['Team_Stats']['home']['name'] + ".gif";
 	image.src = r4;	
+	image1 = document.getElementById('teamimg21');	
+	image1.src = r4;
 	/*team_1_s and team 2_s display down in the team stats box*/
 	$("#team_1_s").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
 	$("#team_2_s").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
