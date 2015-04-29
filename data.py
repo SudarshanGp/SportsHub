@@ -10,7 +10,7 @@ import shutil
 
 from firebase import firebase
 firebase = firebase.FirebaseApplication('https://cs-465-sportshub-1.firebaseio.com', None)
-result = firebase.get('/Schedule/Today/date', None)
+result = firebase.post('/Schedule/Today/games/0', None)
 print result
 
 
