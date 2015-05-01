@@ -353,7 +353,7 @@ function generate_yesterday_game2()
 	$("#f_2").text(yesterday_data['games']['2']['Team_stats']['home']['points']);
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
-	$("#p1_t").text("Q4 " + yesterday_data['games']['2']['Play_by_play']['periods']['3']['events']['95']['clock']);
+	$("#p1_t").text(yesterday_data['games']['2']['Play_by_play']['periods']['3']['events']['95']['clock']);
 	$("#p1").text(yesterday_data['games']['2']['Play_by_play']['periods']['3']['events']['95']['description']);
 	/*generate team stats (can't find largest lead)*/
 	$("#reb_1").text(yesterday_data['games']['2']['Team_stats']['away']['statistics']['rebounds']);
@@ -430,7 +430,7 @@ function generate_yesterday_game1()
 	$("#f_2").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
-	$("#p1_t").text("Q4 " + yesterday_data['games']['1']['Play_by_play']['periods']['3']['events']['112']['clock']);
+	$("#p1_t").text(yesterday_data['games']['1']['Play_by_play']['periods']['3']['events']['112']['clock']);
 	$("#p1").text(yesterday_data['games']['1']['Play_by_play']['periods']['3']['events']['112']['description']);
 	/*generate team stats (can't find largest lead)*/
 	$("#reb_1").text(yesterday_data['games']['1']['Team_stats']['away']['statistics']['rebounds']);
@@ -507,7 +507,7 @@ function generate_yesterday_game()
 	$("#f_2").text(yesterday_data['games']['0']['Team_Stats']['home']['points']);
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
-	$("#p1_t").text("Q4 " + yesterday_data['games']['0']['Play_by_play']['periods']['3']['events']['98']['clock']);
+	$("#p1_t").text(yesterday_data['games']['0']['Play_by_play']['periods']['3']['events']['98']['clock']);
 	$("#p1").text(yesterday_data['games']['0']['Play_by_play']['periods']['3']['events']['98']['description']);
 	/*generate team stats (can't find largest lead)*/
 	$("#reb_1").text(yesterday_data['games']['0']['Team_Stats']['away']['statistics']['rebounds']);
