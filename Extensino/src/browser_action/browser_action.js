@@ -24,7 +24,9 @@ var fire_base_done = 0;
 // set up Listerners for all the 4 games tabs. 
 // work on encapsulating function
 $(document).ready(function(){
+	$('#all').hide();
 	setupFirebase();
+
 	//generate_today();	
 	//today1 = 1;	
 	//handle_first();
@@ -215,6 +217,7 @@ function setupFirebase() // gets json information from firebase
  		var data = snapshot.val(); // gets a snapshow view for the kson data
  		today_data = data; /// assign the data to a local variable. No more calls to Firebase necessary
  		renderTodayText(); // get the dates working.
+
 		},	 function (errorObject) {
   		console.log("The read failed: " + errorObject.code);
 		});
@@ -232,6 +235,8 @@ function setupFirebase() // gets json information from firebase
 		},	 function (errorObject) {
   		console.log("The read failed: " + errorObject.code);
 		});
+
+
 
  }
 
@@ -793,6 +798,7 @@ function renderInitial()
 	
 	/*put a call here to GENERATE GAME 1!!!!!*/
 	today_setup();
+	$('#all').show();
 	//render_sidebar_pics
 }
 
