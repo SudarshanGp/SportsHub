@@ -143,6 +143,16 @@ function generate_yesterday_sidebar_scores()
 	$("#score12").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
 	$("#score23").text(yesterday_data['games']['2']['Team_stats']['away']['points']);
 	$("#score13").text(yesterday_data['games']['2']['Team_stats']['home']['points']);
+	/*Game Status*/
+	$("#ygame_status0").text("Final");
+	$("#ygame_status1").text("Final");
+	$("#ygame_status2").text("Final");
+	$("#game_status0").text("");
+	$("#game_status1").text("");
+	$("#game_status2").text("");
+	$("#game_channel0").text("");
+	$("#game_channel1").text("");
+	$("#game_channel2").text("");
 }
 function generate_today_sidebar_pics()
 {
@@ -174,6 +184,15 @@ function generate_today_sidebar_scores()
 	$("#score12").text(today_data['games']['1']['Game_details']['home']['points']);	
 	$("#score23").text("0");
 	$("#score13").text("0");
+	$("#game_status0").text("Final");
+	$("#game_status1").text("Q3");
+	$("#game_status2").text("9 ET");
+	$("#game_channel0").text("(OT)");
+	$("#game_channel1").text("02:51");
+	$("#game_channel2").text("ESPN");
+	$("#ygame_status0").text("");
+	$("#ygame_status1").text("");
+	$("#ygame_status2").text("");
 }
 
 function generate_tomorrow_sidebar_scores()
@@ -184,6 +203,16 @@ function generate_tomorrow_sidebar_scores()
 	$("#score12").text("0");	
 	$("#score23").text("0");
 	$("#score13").text("0");
+	/*Game Status*/
+	$("#game_status0").text("7 ET");
+	$("#game_status1").text("8 ET");
+	$("#game_status2").text("10 ET");
+	$("#game_channel0").text("ESPN2");
+	$("#game_channel1").text("ESPN");
+	$("#game_channel2").text("ESPN2");
+	$("#ygame_status0").text("");
+	$("#ygame_status1").text("");
+	$("#ygame_status2").text("");
 }
 
 
@@ -318,7 +347,7 @@ function generate_yesterday_game2()
 	$("#f_2").text(yesterday_data['games']['2']['Team_stats']['home']['points']);
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
-	$("#p1_t").text(yesterday_data['games']['2']['Play_by_play']['periods']['3']['events']['95']['clock']);
+	$("#p1_t").text("Q4 " + yesterday_data['games']['2']['Play_by_play']['periods']['3']['events']['95']['clock']);
 	$("#p1").text(yesterday_data['games']['2']['Play_by_play']['periods']['3']['events']['95']['description']);
 	/*generate team stats (can't find largest lead)*/
 	$("#reb_1").text(yesterday_data['games']['2']['Team_stats']['away']['statistics']['rebounds']);
@@ -395,7 +424,7 @@ function generate_yesterday_game1()
 	$("#f_2").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
-	$("#p1_t").text(yesterday_data['games']['1']['Play_by_play']['periods']['3']['events']['112']['clock']);
+	$("#p1_t").text("Q4 " + yesterday_data['games']['1']['Play_by_play']['periods']['3']['events']['112']['clock']);
 	$("#p1").text(yesterday_data['games']['1']['Play_by_play']['periods']['3']['events']['112']['description']);
 	/*generate team stats (can't find largest lead)*/
 	$("#reb_1").text(yesterday_data['games']['1']['Team_stats']['away']['statistics']['rebounds']);
@@ -472,7 +501,7 @@ function generate_yesterday_game()
 	$("#f_2").text(yesterday_data['games']['0']['Team_Stats']['home']['points']);
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
-	$("#p1_t").text(yesterday_data['games']['0']['Play_by_play']['periods']['3']['events']['98']['clock']);
+	$("#p1_t").text("Q4 " + yesterday_data['games']['0']['Play_by_play']['periods']['3']['events']['98']['clock']);
 	$("#p1").text(yesterday_data['games']['0']['Play_by_play']['periods']['3']['events']['98']['description']);
 	/*generate team stats (can't find largest lead)*/
 	$("#reb_1").text(yesterday_data['games']['0']['Team_Stats']['away']['statistics']['rebounds']);
@@ -565,9 +594,9 @@ function generate_today_game()
 	$("#to_1").text(today_data['games']['0']['Game_details']['away']['statistics']['turnovers']);
 	$("#to_2").text(today_data['games']['0']['Game_details']['home']['statistics']['turnovers']);
 	$("#fb_1").text(today_data['games']['0']['Game_details']['away']['statistics']['fast_break_pts']);
-	$("#fb_2").text(today_data['games']['0']['Game_details']['home']['statistics']['fast_break_pts']);
+	$("#fb_2").text("15");//today_data['games']['0']['Game_details']['home']['statistics']['fast_break_pts']);
 	$("#pp_1").text(today_data['games']['0']['Game_details']['away']['statistics']['paint_pts']);
-	$("#pp_2").text(today_data['games']['0']['Game_details']['home']['statistics']['paint_pts']);
+	$("#pp_2").text("45");//today_data['games']['0']['Game_details']['home']['statistics']['paint_pts']);
 	/*generate player stats*/
 	var pt_1_name = today_data['games']['0']['boxscore']['away']['leaders']['points']['0']['full_name'];
 	var pt_1_stat = today_data['games']['0']['boxscore']['away']['leaders']['points']['0']['statistics']['points']
@@ -869,7 +898,7 @@ function clear_empty_game()
 	$("#f_2").text("0");
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
-	$("#p1_t").text("12:00");
+	$("#p1_t").text("Q1 12:00");
 	$("#p1").text("No game data yet");
 	/*generate team stats */
 	$("#reb_1").text("0");
