@@ -6,6 +6,7 @@
 // remove latency
 // TODO : Work on python script to make the app Dynamic. Just the Firebase-import module
 Firebase.enableLogging(true);
+$('#all').hide();
 var root = new Firebase('https://cs-465-sportshub-1.firebaseio.com/');
 
 var today = root.child('Schedule/Today');
@@ -19,12 +20,25 @@ var yesterday1 = 0;
 var today1= 0;
 var tomorrow1 = 0;
 var fire_base_done = 0;
+var d = 0;
+var time = 0;
+d= new Date();
+time = d.toLocaleTimeString();
+$('#Timer1').text(time);
+
+
+
+
+setInterval(function() {
+	d= new Date();
+	time = d.toLocaleTimeString();
+    $('#Timer1').text(time);
+}, 60000);
 // document .ready function keeps track of onclick listeners that are recorded when an action occurs 
 // place all listeners here. 
 // set up Listerners for all the 4 games tabs. 
 // work on encapsulating function
 $(document).ready(function(){
-	$('#all').hide();
 	setupFirebase();
 
 	//generate_today();	
@@ -267,8 +281,6 @@ function setupFirebase() // gets json information from firebase
   		console.log("The read failed: " + errorObject.code);
 		});
 
-
-
  }
 
 
@@ -424,8 +436,8 @@ function generate_yesterday_game1()
 function generate_yesterday_game()
 {	
 		
-	 $("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
-	 $("#team_2").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
+	$("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
+	$("#team_2").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
 	image = document.getElementById('teamimg1');
 	image1 = document.getElementById('teamimg11');
 	var r3 = "Images/" + yesterday_data['games']['0']['Team_Stats']['away']['name'] + ".gif";
@@ -500,8 +512,8 @@ function generate_yesterday_game()
 function generate_today_game()
 {
 	
-	 $("#team_1").text(today_data['games']['0']['Game_details']['away']['name']);
-	 $("#team_2").text(today_data['games']['0']['Game_details']['home']['name']);
+	$("#team_1").text(today_data['games']['0']['Game_details']['away']['name']);
+	$("#team_2").text(today_data['games']['0']['Game_details']['home']['name']);
 	image = document.getElementById('teamimg1');
 	image1 = document.getElementById('teamimg11');
 	var r3 = "Images/" + today_data['games']['0']['Game_details']['away']['name'] + ".gif";
@@ -578,8 +590,8 @@ function generate_today_game()
 }
 function generate_today_game1()
 {
-	 $("#team_1").text(today_data['games']['1']['Game_details']['away']['name']);
-	 $("#team_2").text(today_data['games']['1']['Game_details']['home']['name']);
+	$("#team_1").text(today_data['games']['1']['Game_details']['away']['name']);
+	$("#team_2").text(today_data['games']['1']['Game_details']['home']['name']);
 	image = document.getElementById('teamimg1');
 	image1 = document.getElementById('teamimg12');
 	var r3 = "Images/" + today_data['games']['1']['box_score']['away']['name'] + ".gif ";
@@ -654,9 +666,9 @@ function generate_today_game1()
 }
 function generate_today_game2()
 {
-	 $("#team_1").text(today_data['games']['2']['boxscore']['away']['name']);
-	 $("#team_2").text(today_data['games']['2']['boxscore']['home']['name']);
-	 image = document.getElementById('teamimg1');
+	$("#team_1").text(today_data['games']['2']['boxscore']['away']['name']);
+	$("#team_2").text(today_data['games']['2']['boxscore']['home']['name']);
+	image = document.getElementById('teamimg1');
 	var r3 = "Images/" + today_data['games']['2']['boxscore']['away']['name'] + ".gif ";
 	image.src = r3;
 	image = document.getElementById('teamimg2');
