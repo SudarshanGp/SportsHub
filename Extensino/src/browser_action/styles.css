@@ -84,15 +84,18 @@
   font-size: 15px;
   text-decoration: none;
 }
-#cssmenu ul li:hover,
+#cssmenu ul li:hover
+{
+background: -moz-linear-gradient(left,  rgba(119,119,119,0.65) 0%, rgba(0,0,0,0) 100%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(119,119,119,0.65)), color-stop(100%,rgba(0,0,0,0)));
+background: -webkit-linear-gradient(left,  rgba(119,119,119,0.65) 0%,rgba(0,0,0,0) 100%);
+background: -o-linear-gradient(left,  rgba(119,119,119,0.65) 0%,rgba(0,0,0,0) 100%);
+background: -ms-linear-gradient(left,  rgba(119,119,119,0.65) 0%,rgba(0,0,0,0) 100%);
+background: linear-gradient(to right,  rgba(119,119,119,0.65) 0%,rgba(0,0,0,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6777777', endColorstr='#00000000',GradientType=1 );
+}
 #cssmenu ul li.active {
-  background: #181818 ;
-  background: -moz-linear-gradient(top, #505050  0%, #181818  100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #505050 ), color-stop(100%, #181818 ));
-  background: -webkit-linear-gradient(top, #505050  0%, #181818  100%);
-  background: -o-linear-gradient(top, #505050  0%, #181818  100%);
-  background: -ms-linear-gradient(top, #505050  0%, #181818  100%);
-  background: linear-gradient(to bottom, #505050  0%, #181818  100%);
+  background: #404040 ;
 }
 #cssmenu ul li a:hover,
 #cssmenu ul li.active > a 
@@ -157,17 +160,6 @@ background: linear-gradient(to right,  rgba(226,226,226,0.65) 0%,rgba(0,0,0,0) 1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6e2e2e2', endColorstr='#00000000',GradientType=1 );
 
 }
-#game_set3:hover{
-background: -moz-linear-gradient(left,  rgba(226,226,226,0.65) 0%, rgba(0,0,0,0) 100%);
-background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(226,226,226,0.65)), color-stop(100%,rgba(0,0,0,0)));
-background: -webkit-linear-gradient(left,  rgba(226,226,226,0.65) 0%,rgba(0,0,0,0) 100%);
-background: -o-linear-gradient(left,  rgba(226,226,226,0.65) 0%,rgba(0,0,0,0) 100%);
-background: -ms-linear-gradient(left,  rgba(226,226,226,0.65) 0%,rgba(0,0,0,0) 100%);
-background: linear-gradient(to right,  rgba(226,226,226,0.65) 0%,rgba(0,0,0,0) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6e2e2e2', endColorstr='#00000000',GradientType=1 );
-
-}
-
 #sidebar ul div.active{
 background: -moz-linear-gradient(left,  rgba(119,119,119,0.65) 0%, rgba(0,0,0,0) 100%);
 background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(119,119,119,0.65)), color-stop(100%,rgba(0,0,0,0)));
