@@ -73,6 +73,7 @@ $(document).ready(function(){
 function yesterday_setup() 
 {
 	generate_yesterday_sidebar_pics();
+	generate_yesterday_sidebar_scores();
 	generate_yesterday_game();
 	date = 0;
 }
@@ -80,6 +81,7 @@ function yesterday_setup()
 function today_setup() //  program starts with this function. Sets up initial data
 {
 	generate_today_sidebar_pics(); // takes care of side bar
+	generate_today_sidebar_scores();
 	generate_today_game();
 	date = 1;
 
@@ -88,6 +90,7 @@ function today_setup() //  program starts with this function. Sets up initial da
 function tomorrow_setup() // sets up tomorrow's data
 {
 	generate_tomorrow_sidebar_pics();
+	generate_tomorrow_sidebar_scores();
 	generate_tomorrow_game();
 	date = 2;
 }
@@ -114,6 +117,15 @@ function generate_yesterday_sidebar_pics()
 	image1.src = r4;	
 }
 
+function generate_yesterday_sidebar_scores()
+{
+	$("#score21").text(yesterday_data['games']['0']['Team_Stats']['away']['points']);
+	$("#score11").text(yesterday_data['games']['0']['Team_Stats']['home']['points']);
+	$("#score22").text(yesterday_data['games']['1']['Team_stats']['away']['points']);
+	$("#score12").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
+	$("#score23").text(yesterday_data['games']['2']['Team_stats']['away']['points']);
+	$("#score13").text(yesterday_data['games']['2']['Team_stats']['home']['points']);
+}
 function generate_today_sidebar_pics()
 {
 	image1 = document.getElementById('teamimg12');
@@ -136,7 +148,25 @@ function generate_today_sidebar_pics()
 	image1.src = r4;	
 }
 
+function generate_today_sidebar_scores()
+{
+	$("#score21").text(today_data['games']['0']['Game_details']['away']['points']);
+	$("#score11").text(today_data['games']['0']['Game_details']['home']['points']);
+	$("#score22").text(today_data['games']['1']['Game_details']['away']['points']);
+	$("#score12").text(today_data['games']['1']['Game_details']['home']['points']);	
+	$("#score23").text("0");
+	$("#score13").text("0");
+}
 
+function generate_tomorrow_sidebar_scores()
+{
+	$("#score21").text("0");
+	$("#score11").text("0");
+	$("#score22").text("0");
+	$("#score12").text("0");	
+	$("#score23").text("0");
+	$("#score13").text("0");
+}
 
 
 function handle_first() // either use this function or do it manually in each generate function. 
@@ -494,6 +524,7 @@ function generate_today_game()
 	$("#q4_1").text(today_data['games']['0']['Game_details']['away']['scoring']['3']['points']);
 	//TODO OVERTIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$("#f_1").text(today_data['games']['0']['Game_details']['away']['points']);
+
 	/*generate points by quarter for home team*/
 	$("#q1_2").text(today_data['games']['0']['Game_details']['home']['scoring']['0']['points']);
 	$("#q2_2").text(today_data['games']['0']['Game_details']['home']['scoring']['1']['points']);
@@ -501,6 +532,7 @@ function generate_today_game()
 	$("#q4_2").text(today_data['games']['0']['Game_details']['home']['scoring']['3']['points']);
 	//TODO OVERTIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$("#f_2").text(today_data['games']['0']['Game_details']['home']['points']);
+	
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
 	$("#p1_t").text(today_data['games']['0']['Play_by_play']['periods']['4']['events']['44']['clock']);
@@ -570,12 +602,14 @@ function generate_today_game1()
 	$("#q4_1").text("0");//DOESN'T EXIST 
 	//TODO OVERTIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$("#f_1").text(today_data['games']['1']['Game_details']['away']['points']);
+
 	/*generate points by quarter for home team*/
 	$("#q1_2").text(today_data['games']['1']['Game_details']['home']['scoring']['0']['points']);
 	$("#q2_2").text(today_data['games']['1']['Game_details']['home']['scoring']['1']['points']);
 	$("#q3_2").text(today_data['games']['1']['Game_details']['home']['scoring']['2']['points']);
 	$("#q4_2").text("0"); //DOESN'T EXIST YET
 	$("#f_2").text(today_data['games']['1']['Game_details']['home']['points']);
+
 	/*generate play-by-play*/
 	//TODO: Add the quarter to the time so it's more clear
 	$("#p1_t").text(today_data['games']['1']['Play_by_play']['periods']['2']['events']['83']['clock']);
@@ -633,7 +667,6 @@ function generate_today_game2()
 	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
 	$("#team_1_p").text(today_data['games']['2']['boxscore']['away']['name']);
 	$("#team_2_p").text(today_data['games']['2']['boxscore']['home']['name']);
-
 	clear_empty_game();
 	
 }
