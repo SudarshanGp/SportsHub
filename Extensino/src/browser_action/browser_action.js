@@ -80,6 +80,10 @@ $(document).ready(function(){
         $('#cssmenu ul li').removeClass('active');
         $(ev.currentTarget).parent('li').addClass('active');
     });
+  	$('#sidebar ul div a').click (function(ev) {
+        $('#sidebar ul div').removeClass('active');
+        $(ev.currentTarget).parent('div').addClass('active');
+    });
 
 });
 
