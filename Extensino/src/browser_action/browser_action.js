@@ -832,6 +832,7 @@ function renderInitial()
 	
 	/*put a call here to GENERATE GAME 1!!!!!*/
 	today_setup();
+	$('#load').hide();
 	$('#all').show();
 	//render_sidebar_pics
 }
