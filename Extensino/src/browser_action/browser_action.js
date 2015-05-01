@@ -60,14 +60,20 @@ $(document).ready(function(){
 	$('#today').on('click', function(event)
 	{
 		today_setup();	
+		$('#sidebar ul div').removeClass('active');
+		$('#sidebar ul #game_set').addClass('active');
 	});
 	$('#yesterday').on('click', function(event)
 	{
 		yesterday_setup();
+		$('#sidebar ul div').removeClass('active');
+		$('#sidebar ul #game_set').addClass('active');
 	});
 	$('#tomorrow').on('click', function(event)
 	{
 		tomorrow_setup();
+		$('#sidebar ul div').removeClass('active');
+		$('#sidebar ul #game_set').addClass('active');
 	});
 	$('#cssmenu ul li a').click (function(ev) {
         $('#cssmenu ul li').removeClass('active');
