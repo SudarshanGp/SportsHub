@@ -833,7 +833,7 @@ function renderInitial()
 	/*put a call here to GENERATE GAME 1!!!!!*/
 	today_setup();
 	$('#load').hide();
-	$('#all').show();
+	$('#all').fadeToggle(1000);
 	//render_sidebar_pics
 }
 
