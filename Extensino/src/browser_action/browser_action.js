@@ -219,6 +219,7 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
     if(num_clicks_settings== 1)
      	{
 			iframe = document.createElement("IFRAME");
+			iframe.setAttribute("id", "settings");
   			iframe.setAttribute("src", "window.html");
   			iframe.style.position = "absolute";
   			iframe.style.top = "40px";
