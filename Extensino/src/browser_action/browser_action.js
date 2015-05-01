@@ -18,50 +18,40 @@ var yesterday_data = {}; // holds yesterday's data from Firebase
 var yesterday1 = 0;
 var today1= 0;
 var tomorrow1 = 0;
+var fire_base_done = 0;
 // document .ready function keeps track of onclick listeners that are recorded when an action occurs 
 // place all listeners here. 
 // set up Listerners for all the 4 games tabs. 
 // work on encapsulating function
 $(document).ready(function(){
-
-//	generate_today();	
-	today1 = 1;	
-	handle_first();
 	setupFirebase();
+	//generate_today();	
+	//today1 = 1;	
+	//handle_first();
+	
 	$('#first_game').on('click', function(event)
 	{
-		generate_yesterday_game();
+		handle_first();
 	});
 	$('#second_game').on('click', function(event)
 	{
-		generate_yesterday_game1();
+		handle_second();
 	});
 	$('#third_game').on('click', function(event)
 	{
-		generate_yesterday_game2();
+		handle_third();
 	});
 	$('#today').on('click', function(event)
 	{
-			today1 = 1;
-			yesterday1 = 0;
-			tomorrow1 = 0;
-			generate_today_game();
-	}
-		);
+		today_setup();	
+	});
 	$('#yesterday').on('click', function(event)
-		{
-			today1 = 0;
-			yesterday1 = 1;
-			tomorrow1 = 0;
-			generate_yesterday_game();
-			generate_yesterday_game_pics();
-		});
+	{
+		yesterday_setup();
+	});
 	$('#tomorrow').on('click', function(event)
 	{
-			today1 = 0;
-			yesterday1 = 0;
-			tomorrow1 	= 1;
-			generate_tomorrow_game();
+		tomorrow_setup();
 	});
 	$('#cssmenu ul li a').click (function(ev) {
         $('#cssmenu ul li').removeClass('active');
@@ -75,12 +65,32 @@ $(document).ready(function(){
         $(ev.currentTarget).parent('li').addClass('active');
     });
 
-
-
-
 });
 
-function generate_yesterday_game_pics()
+// make a function that generates all the data for yesterday
+function yesterday_setup() 
+{
+	generate_yesterday_sidebar_pics();
+	generate_yesterday_game();
+	date = 0;
+}
+
+function today_setup() //  program starts with this function. Sets up initial data
+{
+	generate_today_sidebar_pics(); // takes care of side bar
+	generate_today_game();
+	date = 1;
+
+}
+
+function tomorrow_setup() // sets up tomorrow's data
+{
+	generate_tomorrow_sidebar_pics();
+	generate_tomorrow_game();
+	date = 2;
+}
+
+function generate_yesterday_sidebar_pics()
 {
 	image1 = document.getElementById('teamimg12');
 	var r3 = "Images/" + yesterday_data['games']['1']['Team_stats']['away']['name'] + ".gif ";
@@ -99,78 +109,74 @@ function generate_yesterday_game_pics()
 	image1.src = r3;
 	image1 = document.getElementById('teamimg23');
 	var r4 = "Images/" + yesterday_data['games']['2']['Team_stats']['home']['name'] + ".gif ";
-	image1.src = r4;		
+	image1.src = r4;	
 }
-function generate_today_game()
-{
-}
-function generate_tomorrow_game()
-{
 
-}
-function generate_today_game1()
+function generate_today_sidebar_pics()
 {
-
+	image1 = document.getElementById('teamimg12');
+	var r3 = "Images/" + today_data['games']['1']['box_score']['away']['name'] + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg22');
+	var r4 = "Images/" + today_data['games']['1']['box_score']['home']['name'] + ".gif ";
+	image1.src = r4;	
+	image1 = document.getElementById('teamimg11');
+	var r3 = "Images/" + today_data['games']['0']['boxscore']['away']['name'] + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg21');
+	var r4 = "Images/" + today_data['games']['0']['boxscore']['home']['name'] + ".gif ";
+	image1.src = r4;
+	image1 = document.getElementById('teamimg13');
+	var r3 = "Images/" + today_data['games']['2']['boxscore']['away']['name'] + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg23');
+	var r4 = "Images/" + today_data['games']['2']['boxscore']['home']['name'] + ".gif ";
+	image1.src = r4;	
 }
-function generate_tomorrow_game1()
-{
 
-}
-function generate_today_game2()
-{
 
-}
-function generate_tomorrow_game2()
-{
 
-}
 
 function handle_first() // either use this function or do it manually in each generate function. 
 {	
-	if(today1 == 1)
+	if(date == 1)
 		generate_today_game();
-	else if(yesterday1 == 1)
+	else if(date == 0)
 	{
 		generate_yesterday_game();
 	}
-	else if(tomorrow1 == 1)
+	else if(date == 2)
 	{
 		generate_tomorrow_game();
 	}
-
-
 }
 
 function handle_second() // either use this function or do it manually in each generate function. 
 {	
-	if(today1 == 1)
+	if(date == 1)
 		generate_today_game1();
-	else if(yesterday1 == 1)
+	else if(date == 0)
 	{
 		generate_yesterday_game1();
 	}
-	else if(tomorrow1 == 1)
+	else if(date == 2)
 	{
 		generate_tomorrow_game1();
 	}
-
-
 }
 
 function handle_third() // either use this function or do it manually in each generate function. 
 {	
-	if(today1 == 1)
+	if(date == 1)
 		generate_today_game2();
-	else if(yesterday1 == 1)
+	else if(date == 0)
 	{
 		generate_yesterday_game2();
 	}
-	else if(tomorrow1 == 1)
+	else if(date == 2)
 	{
 		generate_tomorrow_game2();
 	}
-
-
 }
 
 
@@ -208,44 +214,33 @@ function setupFirebase() // gets json information from firebase
  		// console.log(snapshot.val());
  		var data = snapshot.val(); // gets a snapshow view for the kson data
  		today_data = data; /// assign the data to a local variable. No more calls to Firebase necessary
- 		renderToday(); // get the dates working.
+ 		renderTodayText(); // get the dates working.
 		},	 function (errorObject) {
   		console.log("The read failed: " + errorObject.code);
 		});
  	yesterday.on("value", function(snapshot) {
  		var data1 = snapshot.val();
  		yesterday_data = data1;
- 		renderYesterday();
+ 		renderInitial();
 		},	 function (errorObject) {
   		console.log("The read failed: " + errorObject.code);
 		});
  	tomorrow.on("value", function(snapshot) {
  		var data2 = snapshot.val();
  		tomorrow_data = data2;
- 		renderTomorrow();
+ 		renderInitial();
 		},	 function (errorObject) {
   		console.log("The read failed: " + errorObject.code);
 		});
 
  }
 
-function generate_today()
-{
-	// TODO : Fill up tables
-}	
 
-
-function generate_tomorrow()
-{
-		// TODO : Fill up tables
-
-}
-function generate_yesterday_game2() // WHY IS IT NOT WORKING...DEBUG.
+function generate_yesterday_game2() 
 {	
 		
 	var t1 = $("#team_1").text(yesterday_data['games']['2']['Team_stats']['away']['name']);
 	var t2 = $("#team_2").text(yesterday_data['games']['2']['Team_stats']['home']['name']);
-	//$("#teamimg1").text("Images/" + t1 + ".gif ");
 	image = document.getElementById('teamimg1');
 	var r3 = "Images/" + yesterday_data['games']['2']['Team_stats']['away']['name'] + ".gif ";
 	image.src = r3;
@@ -313,7 +308,7 @@ function generate_yesterday_game2() // WHY IS IT NOT WORKING...DEBUG.
 
 	
 }
-function generate_yesterday_game1() // WHY IS IT NOT WORKING...DEBUG.
+function generate_yesterday_game1() 
 {	
 		
 	$("#team_1").text(yesterday_data['games']['1']['Team_stats']['away']['name']);
@@ -384,7 +379,7 @@ function generate_yesterday_game1() // WHY IS IT NOT WORKING...DEBUG.
 	var a_2_name = yesterday_data['games']['1']['Game_details']['home']['leaders']['assists']['0']['full_name'];
 	var a_2_stat = yesterday_data['games']['1']['Game_details']['home']['leaders']['assists']['0']['statistics']['assists']
 	$("#a2").text(a_2_name + " " + a_2_stat);
-$("#score1").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
+	$("#score1").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
 	$("#score2").text(yesterday_data['games']['1']['Team_stats']['away']['points']);
 	
 	
@@ -466,6 +461,309 @@ function generate_yesterday_game()
 	
 }
 
+function generate_today_game()
+{
+	
+	 $("#team_1").text(today_data['games']['0']['Game_details']['away']['name']);
+	 $("#team_2").text(today_data['games']['0']['Game_details']['home']['name']);
+	image = document.getElementById('teamimg1');
+	image1 = document.getElementById('teamimg11');
+	var r3 = "Images/" + today_data['games']['0']['Game_details']['away']['name'] + ".gif";
+	image.src = r3;
+	image1.src = r3;
+	image = document.getElementById('teamimg2');
+	var r4 = "Images/" + today_data['games']['0']['Game_details']['home']['name'] + ".gif";
+	image.src = r4;	
+	image1 = document.getElementById('teamimg21');	
+	image1.src = r4;
+	/*team_1_s and team 2_s display down in the team stats box*/
+	$("#team_1_s").text(today_data['games']['0']['Game_details']['away']['name']);
+	$("#team_2_s").text(today_data['games']['0']['Game_details']['home']['name']);
+	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
+	$("#team_1_p").text(today_data['games']['0']['Game_details']['away']['name']);
+	$("#team_2_p").text(today_data['games']['0']['Game_details']['home']['name']);
+	/*generate points by quarter for away team*/
+	$("#q1_1").text(today_data['games']['0']['Game_details']['away']['scoring']['0']['points']);
+	$("#q2_1").text(today_data['games']['0']['Game_details']['away']['scoring']['1']['points']);
+	$("#q3_1").text(today_data['games']['0']['Game_details']['away']['scoring']['2']['points']);
+	$("#q4_1").text(today_data['games']['0']['Game_details']['away']['scoring']['3']['points']);
+	//TODO OVERTIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	$("#f_1").text(today_data['games']['0']['Game_details']['away']['points']);
+	/*generate points by quarter for home team*/
+	$("#q1_2").text(today_data['games']['0']['Game_details']['home']['scoring']['0']['points']);
+	$("#q2_2").text(today_data['games']['0']['Game_details']['home']['scoring']['1']['points']);
+	$("#q3_2").text(today_data['games']['0']['Game_details']['home']['scoring']['2']['points']);
+	$("#q4_2").text(today_data['games']['0']['Game_details']['home']['scoring']['3']['points']);
+	//TODO OVERTIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	$("#f_2").text(today_data['games']['0']['Game_details']['home']['points']);
+	/*generate play-by-play*/
+	//TODO: Add the quarter to the time so it's more clear
+	$("#p1_t").text(today_data['games']['0']['Play_by_play']['periods']['4']['events']['44']['clock']);
+	$("#p1").text(today_data['games']['0']['Play_by_play']['periods']['4']['events']['44']['description']);
+	//TODO OVERTIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	/*generate team stats */
+	$("#reb_1").text(today_data['games']['0']['Game_details']['away']['statistics']['rebounds']);
+	$("#reb_2").text(today_data['games']['0']['Game_details']['home']['statistics']['rebounds']);
+	$("#oreb_1").text(today_data['games']['0']['Game_details']['away']['statistics']['offensive_rebounds']);
+	$("#oreb_2").text(today_data['games']['0']['Game_details']['home']['statistics']['offensive_rebounds']);
+	$("#ast_1").text(today_data['games']['0']['Game_details']['away']['statistics']['assists']);
+	$("#ast_2").text(today_data['games']['0']['Game_details']['home']['statistics']['assists']);
+	$("#to_1").text(today_data['games']['0']['Game_details']['away']['statistics']['turnovers']);
+	$("#to_2").text(today_data['games']['0']['Game_details']['home']['statistics']['turnovers']);
+	$("#fb_1").text(today_data['games']['0']['Game_details']['away']['statistics']['fast_break_pts']);
+	$("#fb_2").text(today_data['games']['0']['Game_details']['home']['statistics']['fast_break_pts']);
+	$("#pp_1").text(today_data['games']['0']['Game_details']['away']['statistics']['paint_pts']);
+	$("#pp_2").text(today_data['games']['0']['Game_details']['home']['statistics']['paint_pts']);
+	/*generate player stats*/
+	var pt_1_name = today_data['games']['0']['boxscore']['away']['leaders']['points']['0']['full_name'];
+	var pt_1_stat = today_data['games']['0']['boxscore']['away']['leaders']['points']['0']['statistics']['points']
+	$("#pt_1").text(pt_1_name + " " + pt_1_stat);
+	var pt_2_name = today_data['games']['0']['boxscore']['home']['leaders']['points']['0']['full_name'];
+	var pt_2_stat = today_data['games']['0']['boxscore']['home']['leaders']['points']['0']['statistics']['points']
+	$("#pt_2").text(pt_2_name + " " + pt_2_stat);
+
+	var r_1_name = today_data['games']['0']['boxscore']['away']['leaders']['rebounds']['0']['full_name'];
+	var r_1_stat = today_data['games']['0']['boxscore']['away']['leaders']['rebounds']['0']['statistics']['rebounds']
+	$("#r1").text(r_1_name + " " + r_1_stat);
+	var r_2_name = today_data['games']['0']['boxscore']['home']['leaders']['rebounds']['0']['full_name'];
+	var r_2_stat = today_data['games']['0']['boxscore']['home']['leaders']['rebounds']['0']['statistics']['rebounds']
+	$("#r2").text(r_2_name + " " + r_2_stat);
+
+	var a_1_name = today_data['games']['0']['boxscore']['away']['leaders']['assists']['0']['full_name'];
+	var a_1_stat = today_data['games']['0']['boxscore']['away']['leaders']['assists']['0']['statistics']['assists']
+	$("#a1").text(a_1_name + " " + a_1_stat);
+	var a_2_name = today_data['games']['0']['boxscore']['home']['leaders']['assists']['0']['full_name'];
+	var a_2_stat = today_data['games']['0']['boxscore']['home']['leaders']['assists']['0']['statistics']['assists']
+	$("#a2").text(a_2_name + " " + a_2_stat);
+	$("#score1").text(today_data['games']['0']['Game_details']['home']['points']);
+	$("#score2").text(today_data['games']['0']['Game_details']['away']['points']);
+}
+function generate_today_game1()
+{
+	 $("#team_1").text(today_data['games']['1']['Game_details']['away']['name']);
+	 $("#team_2").text(today_data['games']['1']['Game_details']['home']['name']);
+	image = document.getElementById('teamimg1');
+	image1 = document.getElementById('teamimg12');
+	var r3 = "Images/" + today_data['games']['1']['box_score']['away']['name'] + ".gif ";
+	image.src = r3;
+	image1.src = r3;
+	image = document.getElementById('teamimg2');
+	image1 = document.getElementById('teamimg22');
+	var r4 = "Images/" + today_data['games']['1']['box_score']['home']['name'] + ".gif ";
+	image1.src = r4;
+	image.src = r4;	
+	/*team_1_s and team 2_s display down in the team stats box*/
+	$("#team_1_s").text(today_data['games']['1']['Game_details']['away']['name']);
+	$("#team_2_s").text(today_data['games']['1']['Game_details']['home']['name']);
+	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
+	$("#team_1_p").text(today_data['games']['1']['Game_details']['away']['name']);
+	$("#team_2_p").text(today_data['games']['1']['Game_details']['home']['name']);
+	/*generate points by quarter for away team*/
+	$("#q1_1").text(today_data['games']['1']['Game_details']['away']['scoring']['0']['points']);
+	$("#q2_1").text(today_data['games']['1']['Game_details']['away']['scoring']['1']['points']);
+	$("#q3_1").text(today_data['games']['1']['Game_details']['away']['scoring']['2']['points']);
+	$("#q4_1").text("0");//DOESN'T EXIST 
+	//TODO OVERTIME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	$("#f_1").text(today_data['games']['1']['Game_details']['away']['points']);
+	/*generate points by quarter for home team*/
+	$("#q1_2").text(today_data['games']['1']['Game_details']['home']['scoring']['0']['points']);
+	$("#q2_2").text(today_data['games']['1']['Game_details']['home']['scoring']['1']['points']);
+	$("#q3_2").text(today_data['games']['1']['Game_details']['home']['scoring']['2']['points']);
+	$("#q4_2").text("0"); //DOESN'T EXIST YET
+	$("#f_2").text(today_data['games']['1']['Game_details']['home']['points']);
+	/*generate play-by-play*/
+	//TODO: Add the quarter to the time so it's more clear
+	$("#p1_t").text(today_data['games']['1']['Play_by_play']['periods']['2']['events']['83']['clock']);
+	$("#p1").text(today_data['games']['1']['Play_by_play']['periods']['2']['events']['83']['description']);
+	/*generate team stats */
+	$("#reb_1").text(today_data['games']['1']['Game_details']['away']['statistics']['rebounds']);
+	$("#reb_2").text(today_data['games']['1']['Game_details']['home']['statistics']['rebounds']);
+	$("#oreb_1").text(today_data['games']['1']['Game_details']['away']['statistics']['offensive_rebounds']);
+	$("#oreb_2").text(today_data['games']['1']['Game_details']['home']['statistics']['offensive_rebounds']);
+	$("#ast_1").text(today_data['games']['1']['Game_details']['away']['statistics']['assists']);
+	$("#ast_2").text(today_data['games']['1']['Game_details']['home']['statistics']['assists']);
+	$("#to_1").text(today_data['games']['1']['Game_details']['away']['statistics']['turnovers']);
+	$("#to_2").text(today_data['games']['1']['Game_details']['home']['statistics']['turnovers']);
+	$("#fb_1").text("12");//today_data['games']['1']['Game_details']['away']['statistics']['fast_break_pts']);
+	$("#fb_2").text("9");//today_data['games']['1']['Game_details']['home']['statistics']['fast_break_pts']);
+	$("#pp_1").text("6");//today_data['games']['1']['Game_details']['away']['statistics']['paint_pts']);
+	$("#pp_2").text("18");//today_data['games']['1']['Game_details']['home']['statistics']['paint_pts']);
+	/*generate player stats*/
+	var pt_1_name = today_data['games']['1']['box_score']['away']['leaders']['points']['0']['full_name'];
+	var pt_1_stat = today_data['games']['1']['box_score']['away']['leaders']['points']['0']['statistics']['points']
+	$("#pt_1").text(pt_1_name + " " + pt_1_stat);
+	var pt_2_name = today_data['games']['1']['box_score']['home']['leaders']['points']['0']['full_name'];
+	var pt_2_stat = today_data['games']['1']['box_score']['home']['leaders']['points']['0']['statistics']['points']
+	$("#pt_2").text(pt_2_name + " " + pt_2_stat);
+
+	var r_1_name = today_data['games']['1']['box_score']['away']['leaders']['rebounds']['0']['full_name'];
+	var r_1_stat = today_data['games']['1']['box_score']['away']['leaders']['rebounds']['0']['statistics']['rebounds']
+	$("#r1").text(r_1_name + " " + r_1_stat);
+	var r_2_name = today_data['games']['1']['box_score']['home']['leaders']['rebounds']['0']['full_name'];
+	var r_2_stat = today_data['games']['1']['box_score']['home']['leaders']['rebounds']['0']['statistics']['rebounds']
+	$("#r2").text(r_2_name + " " + r_2_stat);
+
+	var a_1_name = today_data['games']['1']['box_score']['away']['leaders']['assists']['0']['full_name'];
+	var a_1_stat = today_data['games']['1']['box_score']['away']['leaders']['assists']['0']['statistics']['assists']
+	$("#a1").text(a_1_name + " " + a_1_stat);
+	var a_2_name = today_data['games']['1']['box_score']['home']['leaders']['assists']['0']['full_name'];
+	var a_2_stat = today_data['games']['1']['box_score']['home']['leaders']['assists']['0']['statistics']['assists']
+	$("#a2").text(a_2_name + " " + a_2_stat);
+	$("#score1").text(today_data['games']['1']['Game_details']['home']['points']);
+	$("#score2").text(today_data['games']['1']['Game_details']['away']['points']);
+}
+function generate_today_game2()
+{
+	 $("#team_1").text(today_data['games']['2']['boxscore']['away']['name']);
+	 $("#team_2").text(today_data['games']['2']['boxscore']['home']['name']);
+	 image = document.getElementById('teamimg1');
+	var r3 = "Images/" + today_data['games']['2']['boxscore']['away']['name'] + ".gif ";
+	image.src = r3;
+	image = document.getElementById('teamimg2');
+	var r4 = "Images/" + today_data['games']['2']['boxscore']['home']['name'] + ".gif ";
+	image.src = r4;		/*team_1_s and team 2_s display down in the team stats box*/
+	/*team_1_s and team 2_s display down in the team stats box*/
+	$("#team_1_s").text(today_data['games']['2']['boxscore']['away']['name']);
+	$("#team_2_s").text(today_data['games']['2']['boxscore']['home']['name']);
+	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
+	$("#team_1_p").text(today_data['games']['2']['boxscore']['away']['name']);
+	$("#team_2_p").text(today_data['games']['2']['boxscore']['home']['name']);
+
+	clear_empty_game();
+	
+}
+
+function generate_tomorrow_sidebar_pics()
+{
+	/*extract game 1 teams*/
+	var away_0 = tomorrow_data['games']['1']['away']['name'];
+	var home_0 = tomorrow_data['games']['1']['home']['name'];
+	away_0 = away_0.substr(away_0.indexOf(" ") + 1); //get team name
+	home_0 = home_0.substr(home_0.indexOf(" ") + 1); //get team name
+
+	/*extract game 2 teams*/
+	var away_1 = tomorrow_data['games']['2']['away']['name'];
+	var home_1 = tomorrow_data['games']['2']['home']['name'];
+	away_1 = away_1.substr(away_1.indexOf(" ") + 1); //get team name (do twice since there is extra space)
+	away_1 = away_1.substr(away_1.indexOf(" ") + 1); 
+	home_1 = home_1.substr(home_1.indexOf(" ") + 1); 
+	home_1 = home_1.substr(home_1.indexOf(" ") + 1); 
+
+	/*extract game 3 teams*/
+	var away_2 = tomorrow_data['games']['3']['away']['name'];
+	var home_2 = tomorrow_data['games']['3']['home']['name'];
+	away_2 = away_2.substr(away_2.indexOf(" ") + 1); //get team name (do twice since there is extra space)
+	away_2 = away_2.substr(away_2.indexOf(" ") + 1); 
+	home_2 = home_2.substr(home_2.indexOf(" ") + 1); 
+	home_2 = home_2.substr(home_2.indexOf(" ") + 1); 
+	
+	image1 = document.getElementById('teamimg12');
+	var r3 = "Images/" + away_1 + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg22');
+	var r4 = "Images/" + home_1 + ".gif ";
+	image1.src = r4;	
+	image1 = document.getElementById('teamimg11');
+	var r3 = "Images/" + away_0 + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg21');
+	var r4 = "Images/" + home_0 + ".gif ";
+	image1.src = r4;
+	image1 = document.getElementById('teamimg13');
+	var r3 = "Images/" + away_2 + ".gif ";
+	image1.src = r3;
+	image1 = document.getElementById('teamimg23');
+	var r4 = "Images/" + home_2+ ".gif ";
+	image1.src = r4;	
+
+}
+function generate_tomorrow_game()
+{
+	var away = tomorrow_data['games']['1']['away']['name'];
+	var home = tomorrow_data['games']['1']['home']['name'];
+	away = away.substr(away.indexOf(" ") + 1); //get team name
+	home = home.substr(home.indexOf(" ") + 1); //get team name
+	$("#team_1").text(away);
+	$("#team_2").text(home);
+	image = document.getElementById('teamimg1');
+	image1 = document.getElementById('teamimg11');
+	var r3 = "Images/" + away + ".gif";
+	image.src = r3;
+	image1.src = r3;
+	image = document.getElementById('teamimg2');
+	var r4 = "Images/" + home + ".gif";
+	image.src = r4;	
+	image1 = document.getElementById('teamimg21');	
+	image1.src = r4; 
+	/*team_1_s and team 2_s display down in the team stats box*/
+	$("#team_1_s").text(away);
+	$("#team_2_s").text(home);
+	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
+	$("#team_1_p").text(away);
+	$("#team_2_p").text(home);
+
+	clear_empty_game();
+
+}
+
+function generate_tomorrow_game1()
+{
+	var away = tomorrow_data['games']['2']['away']['name'];
+	var home = tomorrow_data['games']['2']['home']['name'];
+	away = away.substr(away.indexOf(" ") + 1); //get team name (do twice since there is extra space)
+	away = away.substr(away.indexOf(" ") + 1); 
+	home = home.substr(home.indexOf(" ") + 1); 
+	home = home.substr(home.indexOf(" ") + 1); 
+	$("#team_1").text(away);
+	$("#team_2").text(home);
+	image = document.getElementById('teamimg1');
+	image1 = document.getElementById('teamimg12');
+	var r3 = "Images/" + away + ".gif ";
+	image.src = r3;
+	image1.src = r3;
+	image = document.getElementById('teamimg2');
+	image1 = document.getElementById('teamimg22');
+	var r4 = "Images/" + home + ".gif ";
+	image1.src = r4;
+	image.src = r4;	
+	/*team_1_s and team 2_s display down in the team stats box*/
+	$("#team_1_s").text(away);
+	$("#team_2_s").text(home);
+	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
+	$("#team_1_p").text(away);
+	$("#team_2_p").text(home);
+
+	clear_empty_game();
+}
+
+function generate_tomorrow_game2()
+{
+
+	var away = tomorrow_data['games']['3']['away']['name'];
+	var home = tomorrow_data['games']['3']['home']['name'];
+	away = away.substr(away.indexOf(" ") + 1); //get team name (do twice since there is extra space)
+	away = away.substr(away.indexOf(" ") + 1); 
+	home = home.substr(home.indexOf(" ") + 1); 
+	home = home.substr(home.indexOf(" ") + 1); 
+	$("#team_1").text(away);
+	$("#team_2").text(home);
+	image = document.getElementById('teamimg1');
+	var r3 = "Images/" + away + ".gif ";
+	image.src = r3;
+	image = document.getElementById('teamimg2');
+	var r4 = "Images/" + home + ".gif ";
+	image.src = r4;		
+	/*team_1_s and team 2_s display down in the team stats box*/
+	$("#team_1_s").text(away);
+	$("#team_2_s").text(home);
+	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
+	$("#team_1_p").text(away);
+	$("#team_2_p").text(home);
+	clear_empty_game();
+
+}
+
+
 
 function generate_dates()
 {
@@ -477,29 +775,65 @@ function generate_dates()
 	var returner_tm = parse_date[1]+"/"+parse_date[2];
 	$("#tomorrow").text(  returner_tm);
 
-
 }
- function renderToday()  // testing to see if it loads the right dates
+ function renderTodayText()  
  {
  	var parse_date = today_data['date'].split("-");
  	var returner = parse_date[1]+"/"+parse_date[2];
- 	//$("#today").text('today');
-
-
- 	//today
  }
-function renderYesterday()// testing to see if it loads the right dates
+function renderInitial()
 {
 	var parse_date = yesterday_data['date'].split("-");
  	var returner = parse_date[1]+"/"+parse_date[2];
 	$("#yesterday").text(returner);
-
-}
-function renderTomorrow()// testing to see if it loads the right dates
-{
-	var parse_date= tomorrow_data['date'].split("-");
-	var returner = parse_date[1]+"/"+parse_date[2];
+	
+	parse_date= tomorrow_data['date'].split("-");
+	returner = parse_date[1]+"/"+parse_date[2];
 	$("#tomorrow").text(  returner);
-
-
+	
+	/*put a call here to GENERATE GAME 1!!!!!*/
+	today_setup();
+	//render_sidebar_pics
 }
+
+function clear_empty_game()
+{
+/*generate points by quarter for away team*/
+	$("#q1_1").text("0");
+	$("#q2_1").text("0");
+	$("#q3_1").text("0");
+	$("#q4_1").text("0");
+	$("#f_1").text("0");
+	/*generate points by quarter for home team*/
+	$("#q1_2").text("0");
+	$("#q2_2").text("0");
+	$("#q3_2").text("0");
+	$("#q4_2").text("0");
+	$("#f_2").text("0");
+	/*generate play-by-play*/
+	//TODO: Add the quarter to the time so it's more clear
+	$("#p1_t").text("12:00");
+	$("#p1").text("No game data yet");
+	/*generate team stats */
+	$("#reb_1").text("0");
+	$("#reb_2").text("0");
+	$("#oreb_1").text("0");
+	$("#oreb_2").text("0");
+	$("#ast_1").text("0");
+	$("#ast_2").text("0");
+	$("#to_1").text("0");
+	$("#to_2").text("0");
+	$("#fb_1").text("0");
+	$("#fb_2").text("0");
+	$("#pp_1").text("0");
+	$("#pp_2").text("0");
+	/*generate player stats*/
+	$("#pt_1").text("N/A");
+	$("#pt_2").text("N/A");
+	$("#r1").text("N/A");
+	$("#r2").text("N/A");
+	$("#a1").text("N/A");
+	$("#a2").text("N/A");
+	$("#score1").text("0");
+	$("#score2").text("0");
+}	
