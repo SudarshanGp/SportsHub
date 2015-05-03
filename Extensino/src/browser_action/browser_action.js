@@ -153,6 +153,8 @@ function today_setup() //  program starts with this function. Sets up initial da
 	// $("#OT_Col2").hide();
 >>>>>>> origin/master
 
+
+
 }
 
 function tomorrow_setup() // sets up tomorrow's data
