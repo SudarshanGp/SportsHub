@@ -20,7 +20,7 @@
     <div> <h style = "font-size: 24px; position: absolute; left: 40px;"> SETTINGS </h></div>
     <form id = "form1">
       League<br>
-      <select>
+      <select id = "league">
       <option value="basketball">NBA</option>
       <option value="football">NFL</option>
       <option value="baseball">MLB</option>
@@ -28,7 +28,19 @@
       </select>
       <br>
       Favorite Team<br>
-      <input type="text" size="10" name="team" >
+       <select>
+      <option value="bucks">Bucks</option>
+      <option value="bulls">Bulls</option>
+      <option value="cavaliers">Cavaliers</option>
+      <option value="celtics">Celtics</option>
+      <option value="clippers">Clippers</option>
+      <option value="hawks">Hawks</option>
+      <option value="mavericks">Mavericks</option>
+      <option value="pelicans">Pelicans</option>
+      <option value="raptors">Raptors</option>
+      <option value="rockets">Rockets</option>
+      </select>
+      <!-- <input type="text" size="10" name="team" > -->
       <input id = "league" type="submit" value="Set League" style = "position: absolute; top: 15px; left: 110px;">
       <input id = "team" type="submit" value="Set Team" style = "position: absolute; top: 50px; left: 110px;">
     </form>
