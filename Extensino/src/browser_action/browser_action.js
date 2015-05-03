@@ -109,6 +109,25 @@ function today_setup() //  program starts with this function. Sets up initial da
 	generate_today_game();
 	date = 1;
 
+	var row = document.getElementById('headers');
+	var th = document.createElement('th');
+	th.innerHTML = "OT";
+	th.id = "OT_Col";
+	var last = document.getElementById('last');
+	row.insertBefore(th,last);
+
+	var row = document.getElementById('row1');
+	var x = row.insertCell(5);
+	x.innerHTML = "Winner Winner";
+	x.id = "OT_Col";
+
+	var row = document.getElementById('row2');
+	var x = row.insertCell(5);
+	x.innerHTML = "Chicken Dinner";
+	x.id = "OT_Col";
+
+
+
 }
 
 function tomorrow_setup() // sets up tomorrow's data
