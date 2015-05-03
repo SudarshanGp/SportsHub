@@ -391,6 +391,8 @@ function generate_yesterday_game2()
 	$("#a2").text(a_2_name + " " + a_2_stat);
 	$("#score1").text(yesterday_data['games']['2']['Team_stats']['away']['points']);
 	$("#score2").text(yesterday_data['games']['2']['Team_stats']['home']['points']);
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/DAL_HOU.gif";
 	
 
 	
@@ -468,6 +470,8 @@ function generate_yesterday_game1()
 	$("#a2").text(a_2_name + " " + a_2_stat);
 	$("#score1").text(yesterday_data['games']['1']['Team_stats']['away']['points']);
 	$("#score2").text(yesterday_data['games']['1']['Team_stats']['home']['points']);
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/WAS_TOR.gif";
 	
 	
 }
@@ -545,6 +549,8 @@ function generate_yesterday_game()
 	$("#a2").text(a_2_name + " " + a_2_stat);
 	$("#score1").text(yesterday_data['games']['0']['Team_Stats']['away']['points']);
 	$("#score2").text(yesterday_data['games']['0']['Team_Stats']['home']['points']);
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/BOS_CLE.gif";
 	
 }
 
@@ -725,6 +731,9 @@ function generate_today_game2()
 	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
 	$("#team_1_p").text(today_data['games']['2']['boxscore']['home']['name']);
 	$("#team_2_p").text(today_data['games']['2']['boxscore']['away']['name']);
+	/*tweet*/
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/MEM_POR.gif";
 	clear_empty_game();
 	
 }
@@ -797,7 +806,8 @@ function generate_tomorrow_game()
 	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
 	$("#team_1_p").text(away);
 	$("#team_2_p").text(home);
-
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/DAL_HOU2.gif";
 	clear_empty_game();
 
 }
@@ -828,7 +838,8 @@ function generate_tomorrow_game1()
 	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
 	$("#team_1_p").text(away);
 	$("#team_2_p").text(home);
-
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/NO_GS.gif";
 	clear_empty_game();
 }
 
@@ -855,6 +866,8 @@ function generate_tomorrow_game2()
 	/*team_1_p and team_2_p display for the indiv'0'ual player stats*/
 	$("#team_1_p").text(away);
 	$("#team_2_p").text(home);
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/SA_LAC.gif";
 	clear_empty_game();
 
 }
