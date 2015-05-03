@@ -7,6 +7,8 @@
 // TODO : Work on python script to make the app Dynamic. Just the Firebase-import module
 Firebase.enableLogging(true);
 $('#all').hide();
+// $('#set_league').hide();
+
 var root = new Firebase('https://cs-465-sportshub-1.firebaseio.com/');
 
 var today = root.child('Schedule/Today');
@@ -29,7 +31,6 @@ $('#Timer1').text(time);
 
 
 
-
 setInterval(function() {
 	d= new Date();
 	time = d.toLocaleTimeString();
@@ -42,6 +43,7 @@ setInterval(function() {
 $(document).ready(function(){
 	setupFirebase();
 
+	//$('#')
 	//generate_today();	
 	//today1 = 1;	
 	//handle_first();
@@ -307,22 +309,27 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
 			iframe.setAttribute("id", "settings");
   			iframe.setAttribute("src", "window.html");
   			iframe.style.position = "absolute";
-  			iframe.style.top = "40px";
-  			iframe.style.left = "150px";
+  			iframe.style.top = "30px";
+  			iframe.style.left = "160px";
   			iframe.style.background = "#FFFFFF";
   			iframe.style.width = "200px";
   			iframe.style.height = "200px";
+  			iframe.style.frameborder = 0;
   			document.body.appendChild(iframe);
+  			     //   	$("#set_team").value("test");
+
         } 
         else if(num_clicks_settings %2 == 1)
         {
         	$(iframe).show();
+        	//$("#set_team").text("test");
 
         }
         else if(num_clicks_settings %2 == 0)
         {
         	$(iframe).hide();
         }
+
 }
 
 

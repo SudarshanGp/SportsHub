@@ -1,12 +1,16 @@
 <html>
 <head>
    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>  
+</head>
 <style>
   body{
         width:150px;
         height:150px;
         position: absolute;
         z-index: 500;
+        left :0;
+        top:7;
       }
   #form1
   {
@@ -17,15 +21,17 @@
 </style>
 </head>
     <body>
-    <div> <h style = "font-size: 24px; position: absolute; left: 40px;"> SETTINGS </h></div>
+    <div> <h style = "font-size: 24px; position: absolute; left: 40px;"> Settings </h></div>
     <form id = "form1">
       League<br>
-      <select id = "league">
+      <select id = "league1">
       <option value="basketball">NBA</option>
       <option value="football">NFL</option>
       <option value="baseball">MLB</option>
       <option value="hockey">NHL</option>
       </select>
+      <br>
+      <div id = "test"><text id = "set_league">League Set</text></div>
       <br>
       Favorite Team<br>
        <select>
@@ -40,9 +46,13 @@
       <option value="raptors">Raptors</option>
       <option value="rockets">Rockets</option>
       </select>
+      <div><text id = "set_team">Team Set</text></div>
+
       <!-- <input type="text" size="10" name="team" > -->
-      <input id = "league" type="submit" value="Set League" style = "position: absolute; top: 15px; left: 110px;">
-      <input id = "team" type="submit" value="Set Team" style = "position: absolute; top: 50px; left: 110px;">
+      <a href='#'id = "league" style = "position: absolute; top: 15px; left: 110px;">Set League</a>
+      <a href ='#' id = "team" style = "position: absolute; top: 50px; left: 110px;">Set Team</a>
     </form>
+     <script src="window.js"></script>
+
     </body>
 </html>
