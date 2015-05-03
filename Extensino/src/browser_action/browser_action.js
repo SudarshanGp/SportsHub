@@ -126,8 +126,6 @@ function today_setup() //  program starts with this function. Sets up initial da
 	x.innerHTML = "Chicken Dinner";
 	x.id = "OT_Col";
 
-
-
 }
 
 function tomorrow_setup() // sets up tomorrow's data
