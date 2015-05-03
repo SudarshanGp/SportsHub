@@ -626,6 +626,9 @@ function generate_today_game()
 	$("#a2").text(a_2_name + " " + a_2_stat);
 	$("#score1").text(today_data['games']['0']['Game_details']['away']['points']);
 	$("#score2").text(today_data['games']['0']['Game_details']['home']['points']);
+	/*tweet*/
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/BKN_ATL.gif";
 }
 function generate_today_game1()
 {
@@ -702,6 +705,9 @@ function generate_today_game1()
 	$("#a2").text(a_2_name + " " + a_2_stat);
 	$("#score1").text(today_data['games']['1']['Game_details']['away']['points']);
 	$("#score2").text(today_data['games']['1']['Game_details']['home']['points']);
+	/*tweet*/
+	t_image = document.getElementById('tweet_image');
+	t_image.src = "Images/CHI_MIL.gif";
 }
 function generate_today_game2()
 {
