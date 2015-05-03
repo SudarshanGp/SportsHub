@@ -178,7 +178,7 @@ function generate_yesterday_sidebar_scores()
 	$("#game_channel0").text("");
 	$("#game_channel1").text("");
 	$("#game_channel2").text("");
-	$("#trivia_box").text("On this day (04/28): In 1994, the Vancouver Grizzlies became the NBA's 29th franchise");
+	$("#trivia_box").text("On this day (04/26): In 1994, the Vancouver Grizzlies became the NBA's 29th franchise");
 	
 }
 function generate_today_sidebar_pics()
