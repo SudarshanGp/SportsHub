@@ -22,6 +22,7 @@ var tomorrow1 = 0;
 var fire_base_done = 0;
 var d = 0;
 var time = 0;
+var created = 0;
 d= new Date();
 time = d.toLocaleTimeString();
 $('#Timer1').text(time);
@@ -108,25 +109,30 @@ function today_setup() //  program starts with this function. Sets up initial da
 	generate_today_sidebar_scores();
 	generate_today_game();
 	date = 1;
+	if(created == 0 )
+	{
+		var row = document.getElementById('headers');
+		var th = document.createElement('th');
+		th.innerHTML = "OT";
+		th.id = "OT_Col";
+		var last = document.getElementById('last');
+		row.insertBefore(th,last);
 
-	var row = document.getElementById('headers');
-	var th = document.createElement('th');
-	th.innerHTML = "OT";
-	th.id = "OT_Col";
-	var last = document.getElementById('last');
-	row.insertBefore(th,last);
+		var row = document.getElementById('row1');
+		var x = row.insertCell(5);
+		x.innerHTML = "11";
+		x.id = "OT_Col1";
 
-	var row = document.getElementById('row1');
-	var x = row.insertCell(5);
-	x.innerHTML = "Winner Winner";
-	x.id = "OT_Col";
+		var row = document.getElementById('row2');
+		var x = row.insertCell(5);
+		x.innerHTML = "16";
+		x.id = "OT_Col2";
+	}
 
-	var row = document.getElementById('row2');
-	var x = row.insertCell(5);
-	x.innerHTML = "Chicken Dinner";
-	x.id = "OT_Col";
-
-
+	created = 1;
+	// $("#OT_Col").hide();
+	// $("#OT_Col1").hide();
+	// $("#OT_Col2").hide();
 
 }
 
@@ -135,6 +141,9 @@ function tomorrow_setup() // sets up tomorrow's data
 	generate_tomorrow_sidebar_pics();
 	generate_tomorrow_sidebar_scores();
 	generate_tomorrow_game();
+	 $("#OT_Col").hide();
+	 $("#OT_Col1").hide();
+	 $("#OT_Col2").hide();
 	date = 2;
 }
 
@@ -348,7 +357,9 @@ function setupFirebase() // gets json information from firebase
 
 function generate_yesterday_game2() 
 {	
-		
+	$("#OT_Col").hide();
+	$("#OT_Col1").hide();
+	$("#OT_Col2").hide();
 	var t1 = $("#team_1").text(yesterday_data['games']['2']['Team_stats']['away']['name']);
 	var t2 = $("#team_2").text(yesterday_data['games']['2']['Team_stats']['home']['name']);
 	image = document.getElementById('teamimg1');
@@ -422,7 +433,9 @@ function generate_yesterday_game2()
 }
 function generate_yesterday_game1() 
 {	
-		
+	$("#OT_Col").hide();
+	$("#OT_Col1").hide();
+	$("#OT_Col2").hide();	
 	$("#team_1").text(yesterday_data['games']['1']['Team_stats']['away']['name']);
 	$("#team_2").text(yesterday_data['games']['1']['Team_stats']['home']['name']);
 	image = document.getElementById('teamimg1');
@@ -501,7 +514,9 @@ function generate_yesterday_game1()
 
 function generate_yesterday_game()
 {	
-		
+		$("#OT_Col").hide();
+	$("#OT_Col1").hide();
+	$("#OT_Col2").hide();	
 	$("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);
 	$("#team_2").text(yesterday_data['games']['0']['Team_Stats']['home']['name']);
 	image = document.getElementById('teamimg1');
@@ -579,7 +594,9 @@ function generate_yesterday_game()
 
 function generate_today_game()
 {
-	
+	$("#OT_Col").show();
+	$("#OT_Col1").show();
+	$("#OT_Col2").show();
 	$("#team_1").text(today_data['games']['0']['Game_details']['away']['name']);
 	$("#team_2").text(today_data['games']['0']['Game_details']['home']['name']);
 	image = document.getElementById('teamimg1');
@@ -661,6 +678,9 @@ function generate_today_game()
 }
 function generate_today_game1()
 {
+	$("#OT_Col").hide();
+	$("#OT_Col1").hide();
+	$("#OT_Col2").hide();
 	$("#team_1").text(today_data['games']['1']['Game_details']['away']['name']);
 	$("#team_2").text(today_data['games']['1']['Game_details']['home']['name']);
 	image = document.getElementById('teamimg1');
@@ -740,6 +760,10 @@ function generate_today_game1()
 }
 function generate_today_game2()
 {
+	
+	$("#OT_Col").hide();
+	$("#OT_Col1").hide();
+	$("#OT_Col2").hide();
 	$("#team_1").text(today_data['games']['2']['boxscore']['away']['name']);
 	$("#team_2").text(today_data['games']['2']['boxscore']['home']['name']);
 	image = document.getElementById('teamimg1');
