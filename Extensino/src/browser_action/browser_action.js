@@ -178,6 +178,8 @@ function generate_yesterday_sidebar_scores()
 	$("#game_channel0").text("");
 	$("#game_channel1").text("");
 	$("#game_channel2").text("");
+	$("#trivia_box").text("On this day (04/28): In 1994, the Vancouver Grizzlies became the NBA's 29th franchise");
+	
 }
 function generate_today_sidebar_pics()
 {
@@ -218,6 +220,7 @@ function generate_today_sidebar_scores()
 	$("#ygame_status0").text("");
 	$("#ygame_status1").text("");
 	$("#ygame_status2").text("");
+	$("#trivia_box").text("On this day (04/27): Tim Duncan captures the 1998 Rookie of the Year award");
 }
 
 function generate_tomorrow_sidebar_scores()
@@ -238,6 +241,7 @@ function generate_tomorrow_sidebar_scores()
 	$("#ygame_status0").text("");
 	$("#ygame_status1").text("");
 	$("#ygame_status2").text("");
+	$("#trivia_box").text("On this day (04/28): In 1978, Oscar Robertson became the first Milwaukee Buck inducted into basketball HOF");
 }
 
 
