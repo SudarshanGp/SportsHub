@@ -1,7 +1,8 @@
 
 	$('#set_team').hide();
 	$('#set_league').hide();
-
+var team;
+var league;
  $(document).ready(function(){
 	//alert("etst");
 
@@ -31,11 +32,14 @@
 
 function set_league()
 {
+		league = document.getElementById("league1");
+//		alert(select.options[select.selectedIndex].value);
 		$('#set_league').show();//.delay(3000).fadeOut();;
 		$('#set_league').fadeToggle(1000);
 }
 function set_team()
-{
+{		
+		team = document.getElementById("team1");
 		$('#set_team').show();
 		$('#set_team').fadeToggle(1000);
 

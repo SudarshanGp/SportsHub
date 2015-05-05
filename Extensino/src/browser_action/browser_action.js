@@ -7,6 +7,13 @@
 // TODO : Work on python script to make the app Dynamic. Just the Firebase-import module
 Firebase.enableLogging(true);
 $('#all').hide();
+$('#star_11').hide();
+$('#star_21').hide();
+$('#star_12').hide();
+$('#star_22').hide();
+$('#star_13').hide();
+$('#star_23').hide();
+team = "Bucks";
 // $('#set_league').hide();
 
 var root = new Firebase('https://cs-465-sportshub-1.firebaseio.com/');
@@ -40,7 +47,7 @@ setInterval(function() {
 // place all listeners here. 
 // set up Listerners for all the 4 games tabs. 
 // work on encapsulating function
-$(document).ready(function(){
+$(document).on('ready pjax:success',function(){
 	setupFirebase();
 
 	//$('#')
@@ -62,18 +69,36 @@ $(document).ready(function(){
 	});
 	$('#today').on('click', function(event)
 	{
+		$('#star_11').hide();
+		$('#star_21').hide();
+		$('#star_12').hide();
+		$('#star_22').hide();
+		$('#star_13').hide();
+		$('#star_23').hide();
 		today_setup();	
 		$('#sidebar ul div').removeClass('active');
 		$('#sidebar ul #game_set').addClass('active');
 	});
 	$('#yesterday').on('click', function(event)
 	{
+		$('#star_11').hide();
+		$('#star_21').hide();
+		$('#star_12').hide();
+		$('#star_22').hide();
+		$('#star_13').hide();
+		$('#star_23').hide();
 		yesterday_setup();
 		$('#sidebar ul div').removeClass('active');
 		$('#sidebar ul #game_set').addClass('active');
 	});
 	$('#tomorrow').on('click', function(event)
 	{
+		$('#star_11').hide();
+		$('#star_21').hide();
+		$('#star_12').hide();
+		$('#star_22').hide();
+		$('#star_13').hide();
+		$('#star_23').hide();
 		tomorrow_setup();
 		$('#sidebar ul div').removeClass('active');
 		$('#sidebar ul #game_set').addClass('active');
@@ -194,21 +219,64 @@ function generate_yesterday_sidebar_scores()
 }
 function generate_today_sidebar_pics()
 {
+	//alert(team);
+	var team1_away = today_data['games']['1']['box_score']['away']['name'];
+	if(team1_away == team)
+	{
+		$('#star_12').show();
+
+	//	alert("team1_away");
+	}
 	image1 = document.getElementById('teamimg12');
 	var r3 = "Images/" + today_data['games']['1']['box_score']['away']['name'] + ".gif ";
 	image1.src = r3;
+
+	var team1_home = today_data['games']['1']['box_score']['home']['name'];
+	if(team1_home == team)
+	{
+		$('#star_22').show();
+	}
 	image1 = document.getElementById('teamimg22');
 	var r4 = "Images/" + today_data['games']['1']['box_score']['home']['name'] + ".gif ";
 	image1.src = r4;	
+	
+	var team2_away = today_data['games']['0']['boxscore']['away']['name'];
+	if(team2_away == "Bulls")
+	{
+		$('#star_11').show();
+		//alert("team2_home");
+	}
 	image1 = document.getElementById('teamimg11');
 	var r3 = "Images/" + today_data['games']['0']['boxscore']['away']['name'] + ".gif ";
 	image1.src = r3;
+
+	var team2_home = today_data['games']['0']['boxscore']['home']['name'];
+	if(team2_home == "Bulls")
+	{
+		$('#star_21').show();
+		//alert("team2_home");
+	}
 	image1 = document.getElementById('teamimg21');
 	var r4 = "Images/" + today_data['games']['0']['boxscore']['home']['name'] + ".gif ";
 	image1.src = r4;
+
+	var team3_away = today_data['games']['2']['boxscore']['away']['name'];
+	if(team3_away == "Bulls")
+	{
+		$('#star_13').show();
+		//alert("team2_home");
+	}	
 	image1 = document.getElementById('teamimg13');
 	var r3 = "Images/" + today_data['games']['2']['boxscore']['away']['name'] + ".gif ";
 	image1.src = r3;
+
+	var team3_home = today_data['games']['2']['boxscore']['home']['name'];
+	if(team3_home == "Bulls")
+	{
+		$('#star_23').show();
+		//alert("team2_home");
+	}	
+
 	image1 = document.getElementById('teamimg23');
 	var r4 = "Images/" + today_data['games']['2']['boxscore']['home']['name'] + ".gif ";
 	image1.src = r4;	
@@ -329,6 +397,7 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
         {
         	$(iframe).hide();
         }
+       // jQuery.ready();
 
 }
 
@@ -521,7 +590,7 @@ function generate_yesterday_game1()
 
 function generate_yesterday_game()
 {	
-		$("#OT_Col").hide();
+	$("#OT_Col").hide();
 	$("#OT_Col1").hide();
 	$("#OT_Col2").hide();	
 	$("#team_1").text(yesterday_data['games']['0']['Team_Stats']['away']['name']);

@@ -18,6 +18,12 @@
       z-index: 500;
       top: 40px;
   }
+  #form2
+  {
+      position: absolute;
+      z-index: 500;
+      top: 100px;
+  }
 </style>
 </head>
     <body>
@@ -25,32 +31,38 @@
     <form id = "form1">
       League<br>
       <select id = "league1">
-      <option value="basketball">NBA</option>
-      <option value="football">NFL</option>
-      <option value="baseball">MLB</option>
-      <option value="hockey">NHL</option>
+      <option value="Basketball">NBA</option>
+      <option value="Football">NFL</option>
+      <option value="Baseball">MLB</option>
+      <option value="Hockey">NHL</option>
       </select>
       <br>
       <div id = "test"><text id = "set_league">League Set</text></div>
+            <a href='#'id = "league" style = "position: absolute; top: 15px; left: 110px;"><img src = "league.gif" style = "width: 40px; height: 40px; position: relative; top: -10px; left: 30px;"></a>
       <br>
-      Favorite Team<br>
-       <select>
-      <option value="bucks">Bucks</option>
-      <option value="bulls">Bulls</option>
-      <option value="cavaliers">Cavaliers</option>
-      <option value="celtics">Celtics</option>
-      <option value="clippers">Clippers</option>
-      <option value="hawks">Hawks</option>
-      <option value="mavericks">Mavericks</option>
-      <option value="pelicans">Pelicans</option>
-      <option value="raptors">Raptors</option>
-      <option value="rockets">Rockets</option>
+         </form>
+
+ 
+    <form id = "form2">
+            Favorite Team<br>
+       <select id = "team1">
+      <option value="Bucks">Bucks</option>
+      <option value="Bulls">Bulls</option>
+      <option value="Cavaliers">Cavaliers</option>
+      <option value="Celtics">Celtics</option>
+      <option value="Clippers">Clippers</option>
+      <option value="Hawks">Hawks</option>
+      <option value="Mavericks">Mavericks</option>
+      <option value="Pelicans">Pelicans</option>
+      <option value="Raptors">Raptors</option>
+      <option value="Rockets">Rockets</option>
       </select>
       <div><text id = "set_team">Team Set</text></div>
 
       <!-- <input type="text" size="10" name="team" > -->
-      <a href='#'id = "league" style = "position: absolute; top: 15px; left: 110px;"><img src = "league.gif" style = "width: 40px; height: 40px; position: relative; top: -10px; left: 30px;"></a>
-      <a href ='#' id = "team" style = "position: absolute; top: 50px; left: 110px;"><img src = "team.gif" style = "width: 40px; height: 40px; position: relative; top: 5px; left: 30px;"></a>
+
+      <a href ='#' id = "team" style = "position: absolute; top: 40px; left: 110px;"><img src = "team.gif" style = "width: 40px; height: 40px; position: relative; top: -43px; left: 30px;"></a>
+      <br>
     </form>
      <script src="window.js"></script>
 
