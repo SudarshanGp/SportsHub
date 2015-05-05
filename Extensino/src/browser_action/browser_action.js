@@ -103,15 +103,11 @@ $(document).on('ready pjax:success',function(){
 		$('#sidebar ul div').removeClass('active');
 		$('#sidebar ul #game_set').addClass('active');
 	});
-	$('#cssmenu ul li a').click (function(ev) {
-        $('#cssmenu ul li').removeClass('active');
-        $(ev.currentTarget).parent('li').addClass('active');
-    });
 	$('#setting_frame').on('click', function(event) {
 		control_setting();
-		$('#sidebar ul div').removeClass('active');
-		$('#sidebar ul #game_set').addClass('active');
-	    });
+		$('#cssmenu ul li').removeClass('active');
+        $(ev.currentTarget).parent('li').addClass('active');
+	});
 	$('#cssmenu ul li a').click (function(ev) {
         $('#cssmenu ul li').removeClass('active');
         $(ev.currentTarget).parent('li').addClass('active');
@@ -374,32 +370,45 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
 {
 	num_clicks_settings = num_clicks_settings +1;
     if(num_clicks_settings== 1)
-     	{
-			iframe = document.createElement("IFRAME");
-			iframe.setAttribute("id", "settings");
-  			iframe.setAttribute("src", "window.html");
-  			iframe.style.position = "absolute";
-  			iframe.style.top = "30px";
-  			iframe.style.left = "160px";
-  			iframe.style.background = "#FFFFFF";
-  			iframe.style.width = "200px";
-  			iframe.style.height = "200px";
-  			iframe.style.frameborder = 0;
-  			document.body.appendChild(iframe);
-  			     //   	$("#set_team").value("test");
+    {
+		iframe = document.createElement("IFRAME");
+		iframe.setAttribute("id", "settings");
+  		iframe.setAttribute("src", "window.html");
+  		iframe.style.position = "absolute";
+  		iframe.style.top = "30px";
+  		iframe.style.left = "160px";
+  		iframe.style.background = "#FFFFFF";
+  		iframe.style.width = "200px";
+  		iframe.style.height = "200px";
+  		iframe.style.frameborder = 0;
+  		document.body.appendChild(iframe);
+  	    //   	$("#set_team").value("test");
 
-        } 
-        else if(num_clicks_settings %2 == 1)
-        {
-        	$(iframe).show();
-        	//$("#set_team").text("test");
+    } 
+    else if(num_clicks_settings %2 == 1)
+    {
+       	$(iframe).show();
+       	num_clicks_settings = num_clicks_settings - 1;
+      	//$("#set_team").text("test");
 
-        }
-        else if(num_clicks_settings %2 == 0)
-        {
-        	$(iframe).hide();
-        }
-       // jQuery.ready();
+    }
+    else if(num_clicks_settings %2 == 0)
+    {
+      	$(iframe).hide();
+      	$('#cssmenu ul li').removeClass('active');
+        $('ul li #today').parent('li').addClass('active');
+        todaySetup();
+    }
+    
+    $(document).add(parent.document).mouseup(function(e) {
+    var cont = $('#settings');
+    if (!cont.is(e.target) && cont.has(e.target).length === 0) {
+        cont.hide();
+		$('#cssmenu ul li').removeClass('active');
+        $('ul li #today').parent('li').addClass('active');
+        todaySetup();
+    }
+});
 
 }
 
