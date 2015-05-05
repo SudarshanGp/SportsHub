@@ -109,6 +109,8 @@ $(document).on('ready pjax:success',function(){
     });
 	$('#setting_frame').on('click', function(event) {
 		control_setting();
+		$('#sidebar ul div').removeClass('active');
+		$('#sidebar ul #game_set').addClass('active');
 	    });
 	$('#cssmenu ul li a').click (function(ev) {
         $('#cssmenu ul li').removeClass('active');
