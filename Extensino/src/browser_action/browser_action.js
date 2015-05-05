@@ -402,7 +402,7 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
     
     $(document).add(parent.document).mouseup(function(e) {
     var cont = $('#settings');
-    if (!cont.is(e.target) && cont.has(e.target).length === 0) {
+    if ((!cont.is(e.target) && cont.has(e.target).length === 0) || (cond.is(e.target))) {
         cont.hide();
 		$('#cssmenu ul li').removeClass('active');
         $('ul li #today').parent('li').addClass('active');
