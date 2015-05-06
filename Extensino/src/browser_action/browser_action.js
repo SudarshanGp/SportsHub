@@ -391,22 +391,22 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
        	num_clicks_settings = num_clicks_settings - 1;
       	//$("#set_team").text("test");
 
-    }
+    }/**
     else if(num_clicks_settings %2 == 0)
     {
       	$(iframe).hide();
       	$('#cssmenu ul li').removeClass('active');
         $('ul li #today').parent('li').addClass('active');
-        todaySetup();
-    }
+        today_setup();
+    }*/
     
     $(document).add(parent.document).mouseup(function(e) {
-    var cont = $('#settings');
+    var cont = $(iframe);
     if (!cont.is(e.target) && cont.has(e.target).length === 0) {
         cont.hide();
 		$('#cssmenu ul li').removeClass('active');
         $('ul li #today').parent('li').addClass('active');
-        todaySetup();
+        today_setup();
     }
 });
 
