@@ -388,7 +388,6 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
     else if(num_clicks_settings %2 == 1)
     {
        	$(iframe).show();
-       	num_clicks_settings = num_clicks_settings - 1;
       	//$("#set_team").text("test");
 
     }/**
@@ -424,6 +423,7 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
       		yesterday_setup();
   		
     	}
+
 
     }
 });
