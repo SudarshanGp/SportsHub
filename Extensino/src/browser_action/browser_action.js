@@ -369,7 +369,7 @@ function handle_third() // either use this function or do it manually in each ge
 function control_setting() /// used to trigger the settings menu.Need to get input and do stuff with it
 {
 	num_clicks_settings = num_clicks_settings +1;
-    if(num_clicks_settings== 1)
+    if(num_clicks_settings %2 == 1)
     {
 		iframe = document.createElement("IFRAME");
 		iframe.setAttribute("id", "settings");
@@ -382,12 +382,40 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
   		iframe.style.height = "200px";
   		iframe.style.frameborder = 0;
   		document.body.appendChild(iframe);
+  		$(iframe).show();
   	    //   	$("#set_team").value("test");
 
     } 
+    else if (num_clicks_settings %2 == 0)
+    {
+    	$(iframe).hide();
+    			$('#cssmenu ul li').removeClass('active');
+        if(date == 1)
+        {
+        	$('ul li #today').parent('li').addClass('active');
+         	//today_setup();
+        }
+    	if(date == 2)
+    	{
+    		$('ul li #tomorrow').parent('li').addClass('active');
+
+    		//tomorrow_setup();
+
+    	}
+    	if(date == 0)
+    	{
+    		$('ul li #yesterday').parent('li').addClass('active');
+
+      		//yesterday_setup();
+  		
+    	}
+    }
+    	/**
+    }
     else if(num_clicks_settings %2 == 1)
     {
        	$(iframe).show();
+       	num_clicks_settings = 0;
       	//$("#set_team").text("test");
 
     }/**
@@ -407,20 +435,20 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
         if(date == 1)
         {
         	$('ul li #today').parent('li').addClass('active');
-         	today_setup();
+         	//today_setup();
         }
     	if(date == 2)
     	{
     		$('ul li #tomorrow').parent('li').addClass('active');
 
-    		tomorrow_setup();
+    		//tomorrow_setup();
 
     	}
     	if(date == 0)
     	{
     		$('ul li #yesterday').parent('li').addClass('active');
 
-      		yesterday_setup();
+      		//yesterday_setup();
   		
     	}
 
