@@ -405,8 +405,26 @@ function control_setting() /// used to trigger the settings menu.Need to get inp
     if (!cont.is(e.target) && cont.has(e.target).length === 0) {
         cont.hide();
 		$('#cssmenu ul li').removeClass('active');
-        $('ul li #today').parent('li').addClass('active');
-        today_setup();
+        if(date == 1)
+        {
+        	$('ul li #today').parent('li').addClass('active');
+         	today_setup();
+        }
+    	if(date == 2)
+    	{
+    		$('ul li #tomorrow').parent('li').addClass('active');
+
+    		tomorrow_setup();
+
+    	}
+    	if(date == 0)
+    	{
+    		$('ul li #yesterday').parent('li').addClass('active');
+
+      		yesterday_setup();
+  		
+    	}
+
     }
 });
 
